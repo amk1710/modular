@@ -43,6 +43,7 @@ static const char EXC_ELEM_CMD            [ ] = "=excluirelem"    ;
 static const char IR_INICIO_CMD           [ ] = "=irinicio"       ;
 static const char IR_FIM_CMD              [ ] = "=irfinal"        ;
 static const char AVANCAR_ELEM_CMD        [ ] = "=avancarelem"    ;
+static const char BUSCAR_ELEM_CMD		  [ ] = "=buscarelem"     ;
 
 
 #define TRUE  1
@@ -86,6 +87,7 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 *     =irinicio                     inxLista
 *     =irfinal                      inxLista
 *     =avancarelem                  inxLista  numElem CondRetEsp
+*	  =buscarelem					inxLista  string CondRetEsp
 *
 ***********************************************************************/
 
@@ -244,7 +246,7 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
             strcpy( pDado , StringDado ) ;
 
 
-            CondRet = LIS_InserirElementoApos( vtListas[ inxLista ] , pDado ) ;
+            CondRet = LIS_InserirElementoApos( vtListas[ inxLista ] ,pDado ) ;
 
             if ( CondRet != LIS_CondRetOK )
             {
@@ -367,7 +369,37 @@ LIS_tppLista   vtListas[ DIM_VT_LISTA ] ;
 
          } /* fim ativa: LIS  &Avançar elemento */
 
-      return TST_CondRetNaoConhec ;
+   //   
+		 //else if( strcmp( ComandoTeste,  BUSCAR_ELEM_CMD) == 0)
+		 //{
+			// numLidos = LER_LerParametros( "isi", &inxLista, StringDado, &CondRetEsp);
+
+			// if( ( numLidos != 3 ) || (! ValidarInxLista( inxLista, NAO_VAZIO)) )
+			// {
+			//	 return TST_CondRetParm;
+			// }
+
+			//pDado = ( char * ) malloc( strlen( StringDado ) + 1 ) ;
+   //         if ( pDado == NULL )
+   //         {
+   //            return TST_CondRetMemoria ;
+   //         } /* if */
+
+   //         strcpy( pDado , StringDado ) ;
+
+			//CondRet =  LIS_ProcurarValor( vtListas[ inxLista ],pDado);
+
+			//
+   //         free( pDado ) ;
+   //         
+			//
+			//return TST_CompararInt( CondRetEsp , CondRet ,
+   //                  "Condicao de retorno errada ao procurar valor."                   ) ;
+		 //}
+		 
+		 
+		 return TST_CondRetNaoConhec ;
+	  
 
    } /* Fim função: TLIS &Testar lista */
 

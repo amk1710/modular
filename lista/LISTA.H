@@ -165,6 +165,7 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *  $ED Descrição da função
 *     Insere novo elemento antes do elemento corrente.
 *     Caso a lista esteja vazia, insere o primeiro elemento da lista.
+*	  O novo elemento criado se torna o elemento corrente (esclarecimento por AMK)
 *
 *  $EP Parâmetros
 *     pLista - ponteiro para a lista onde deve ser inserido o elemento
@@ -188,6 +189,7 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *  $ED Descrição da função
 *     Insere novo elemento apás o elemento corrente.
 *     Caso a lista esteja vazia, insere o primeiro elemento da lista.
+*	  O novo elemento criado se torna o elemento corrente(esclarecimento por AMK)
 *
 *  $EP Parâmetros
 *     Parâmetros
@@ -329,14 +331,14 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *                      elemento corrente inclusive para o fim da lista
 *                      e que contém o ponteiro procurado
 *
-*     LIS_CondRetNaoEncontrou - se o ponteiro não foi encontrado
+*     LIS_CondRetNaoAchou - se o ponteiro não foi encontrado
 *                      O elemento corrente continua o mesmo
 *     LIS_CondRetListaVazia   - se a lista estiver vazia
 *
 ***********************************************************************/
 
-   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
-                                    void * pValor        ) ;
+//   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
+  //                                 void * pValor        ) ;
 
 #undef LISTA_EXT
 
