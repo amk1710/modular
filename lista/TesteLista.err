@@ -1,0 +1,3 @@
+TestLis.c
+Lista.c
+.\Lista.c(472) : error C2100: illegal indirection
