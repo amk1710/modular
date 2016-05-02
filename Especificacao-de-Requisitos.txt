@@ -1,0 +1,69 @@
+Especificação de Requisitos
+
+ -O jogo:
+  • O programa deve possibilitar o jogo entre 2,4 ou 6 jogadores.
+  • Os jogadores são dividos igualmente em 2 equipes.
+  • A primeira equipe a marcar 12 ou mais pontos ganha o jogo.
+  • Ambas as equipes começam com 0 pontos.
+  • Equipes marcam pontos vencendo mãos.
+  • Somente uma equipe pode ganhar a mão.
+  • O jogo é composto por um número variável de mãos.
+  • Uma mão é iniciada sempre que o jogo começar ou se após uma mão terminar, nenhuma equipe tiver ganho o jogo.
+  • Cada mão pode valer 1,3,6,9 ou 12 pontos, mas inicialmente começam valendo 1 ponto.
+  • Uma mão pode ter 1,2 ou 3 rodadas.
+  • Somente uma equipe pode ganhar a rodada.
+  • A primeira equipe a ganhar 2 rodadas, ganha a mão.
+  • Ao ganhar uma mão, a equipe marca a pontuação vigente da mão e encerra-se aquela mão.
+  • Jogadores realizam jogadas na sua vez apenas.
+  • O sentido que os jogadores realizam suas jogadas é fixo durante o jogo.
+  • As jogadas são intercaladas por jogadores de cada equipe.
+  • Na primeira mão um jogador é escolhido aleatoriamente para realizar a primeira jogada da primeira rodada.
+  • Nas mão subsequentes, o jogador a realizar a primeira jogada é o jogador seguinte ao que realizou primeira jogada da mão anterior.
+
+
+ -O baralho:
+  • O jogo utiliza um baralho convencional retirando-se as cartas '8','9','10' e "Coringa".
+  • O valor das cartas é determinado pelo seu número, independente do naipe, inicialmente na seguinte ordem crescente: 4 < 5 < 6 < 7 < Q < J < K < Ás < 2 < 3
+  • O baralho é embaralhado ao final de cada mão.
+  • O baralho inicialmente está embaralhado.
+ 
+
+ -As mãos e as Rodadas:
+  • No ínicio de cada mão, cada jogador recebe 3 cartas do baralho, estas visíveis apenas ao próprio jogador.
+  • Em seguida, uma carta deverá ser retirada do baralho e ser visível a todos os jogadores, esta carta recebe o nome de 'vira'.
+  • A carta imediatamente superior(de acordo com a ordem crescente de valor inicial) a 'vira' determinará 4 cartas 'manilha' daquela mão, sendo elas a carta em questão nos quatro naipes.
+  • No caso em que a vira é a carta '3', ao invés da carta imediatamente superior a vira, a carta '4' nos quatro naipes determinará as manilhas daquela mão
+  • As manilhas da mão vigoram somente nas mão em que elas forem definidas.
+  • A ordem crescente de valor é atualizada, o valor da manilha é retirada, e colocada como a maior da ordem.
+  • Após os procedimentos de distribuição das cartas e da determinação das manilhas, inicia-se uma rodada.
+  • Uma nova rodada é iniciada sempre que após o término de uma rodado nenhuma equipe tiver ganho a mão.
+  • Na vez de cada jogador, o mesmo deverá revelar aos outros jogadores a carta que deseja jogar,ou joga-la sem revelar aos outros jogadores caso seja a 2ª ou 3ª rodada, esta carta não poderá mais ser utilizada nesta mão. 
+  • Ganha a rodada, a equipe do jogador que tiver a carta com o maior valor revelada.
+  • O jogador que realizará a primeira jogada nas rodadas seguintes a primeira, será o que teve a carta com maior valor revelada na última rodada.
+  • Caso jogadores da mesma equipe tenham revelado e jogado a carta com maior valor na rodada anterior, quem realizará a primeira jogada da rodada seguinte será escolhido aleatoriamente entre eles.
+  • As cartas jogadas,e a vira retornam ao baralho, assim que uma equipe ganha a mão.
+  • A ordem crescente de valor retorna ao estado inicial, assim que uma equipe ganha a mão.
+
+
+ -O Truco:
+  • Antes de realizar sua jogada, o jogador tem a opção de 'pedir truco', caso sua equipe não tenha pedido truco anteriormente nessa mão e caso o valor vigente da partida não seja 12 pontos.
+  • O jogador seguinte ao que pediu truco pode aceitar,recusar ou retrucar o pedido de truco.
+  • Ao aceitar um pedido de truco, a pontuação da mão aumenta para o valor imediatamente superior disponível. O jogador que pediu truco prossegue sua jogada.
+  • Ao recusar um pedido de truco, equipe cujo jogador pediu truco ganha aquela mão.
+  • Ao retrucar um pedido de truco, a pontuação da mão aumenta para o valor imediatamente superior disponível e o jogador pede truco, mas quem irá aceitar,recusar ou retrucar será o jogador que pediu truco anteriormente.
+
+
+ -Critérios de Desempate:
+  • Nos casos em que forem reveladas e jogadas mais de uma manilha em uma rodada, utiliza-se de uma segunda ordem de valor crescente: manilha de outro < manilha de espadas < manilha de copas < manilha de paus. Ganha aquela rodada a equipe do jogador que tiver jogado a manilha com maior valor.
+  • Caso jogadores de equipes distintas tenham jogado a carta com o maior valor da 1ª rodada, ganha a mão a equipe que vencer a 2ª ou 3ª rodada.
+  • Caso jogadores de equipes distintas tenham jogado a carta com o maior valor da 2ª ou da 3ª rodada, ganha a mão a equipe que tiver ganho a 1ª rodada.
+  • Caso jogadores de equipes distintas tenham jogado a carta com o maior valor nas 3 rodada, nenhuma equipe ganha aquela mão. Encerra-se aquela mão.
+
+ -Mãos Especiais:
+  • Se uma e apenas uma equipe tiver 11 pontos marcados após o término de uma mão, inicia-se uma mão que começa valendo 3 pontos chamada de 'mão de onze'.
+  • Nas mãos de onze, os jogadores da equipe que tiver 11 pontos podem olhar as cartas dos outros jogadores daquela equipe antes de iniciar-se a primeira rodada.
+  • Nas mãos de onze, a equipe que tiver 11 pontos pode optar por dar prosseguimento a mão de onze ou recusar a mão de onze antes da primeira rodada começar.
+  • Ao dar prosseguimento a mão de onze, inicia-se a primeira rodada.
+  • Ao recusar uma mão de onze, a equipe que não tiver 11 pontos marcados marca 1 ponto.Encerra-se a mão de onze.
+  • Se ambas as equipe tiverem 11 pontos marcados após o término de uma mão, inicia-se uma mão onde nenhum jogador pode ver as próprias cartas nem as de qualquer jogador, chamada de 'mão de ferro'.  
+  • Não é permitido a nenhum jogador pedir truco nas mãos de onze nem nas mão de ferro.
