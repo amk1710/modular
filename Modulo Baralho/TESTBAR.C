@@ -21,7 +21,6 @@ Módulo de implementação dos testes do módulo baralho
 static int Vet[ DIM_VET + 1 ] ;
 
 static char InicializarTeste [ ] = "=inicializar" ;
-static char TestarCartaUnica[  ]  = "=testarcartaunica" ;
 static char TestarSetarBaralho[ ] = "=testarsetarbaralho" ;
 static char TestarSetarBaralhoTruco [ ] = "=testarsetarbaralhotruco" ;
 static char TestarCompra[ ]  = "=testarcompra" ;
