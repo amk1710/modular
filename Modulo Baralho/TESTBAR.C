@@ -64,7 +64,7 @@ Comandos de Teste:					Parametros:
 
 
 LIS_tppLista baralho;
-//baralho e carta usados pelos testes
+//baralho usado pelos testes
 
 
    TST_tpCondRet TST_EfetuarComando( char * ComandoTeste )
