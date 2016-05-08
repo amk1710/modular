@@ -1,0 +1,144 @@
+// Script:    TesteBaralho.script
+// Autor:     André Mazal Krauss
+// Data:      08/mai/2016
+// Propósito: Testar o módulo baralho
+//
+//
+
+== Inicializar valores
+
+
+=declararparm   naipe   int  0
+=declararparm   valor   int  5
+=declararparm   naipe2  int  1
+=declararparm   valor2  int  11
+
+==inicializar teste, cria baralho
+=inicializar
+
+==coloca uma carta no baralho, e a retira. Imprime-a no log
+=testardevolucao naipe valor
+=testarcompra
+
+== coloca outra carta no baralho e a retira. Imprime-a no log
+=testardevolucao naipe2 valor2
+testarcompra
+
+==seta baralho convencional
+=testarsetarbaralho
+
+==compra suas 54 cartas
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//10
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//20
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+/30
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+/40
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+/50
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//54 cartas impressas no log
+
+==seta baralho de truco e compra suas 40 cartas
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//10
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//20
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//30
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+=testarcompra
+//40 cartas compradas e impressas no log
+==destroi o baralho
+
+=testardestruir
+
+
+
+
+// fim
