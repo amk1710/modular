@@ -1,2 +1,7 @@
-   Data     Horas Trabalhadas   Tipo Tarefa        Descrição da Tarefa Realizada
-07/05/2016  1                   Codificar Módulo   Criação do BARALHO.c
+   Data     Horas Trabalhadas   Tipo Tarefa             Descrição da Tarefa Realizada
+07/05/2016  1:00                Codificar Módulo        Criação do BARALHO.c e BARALHO.h
+07/05/2016  1:00                Estudar                 Padrões de nomeação de variáveis.
+08/05/2016  0:30 		Revisar Especificações  Especificação de valores de retorno das funções do módulo baralho.
+08/05/2016  2:00 		Codificar Módulo        Elaboração do BARALHO.h		
+09/05/2016  0:30                Estudar                 Iteração de enums em C, funcionamento do módulo GERAALT.
+09/05/2016  1:30                Codificar Módulo        Primeiras funções do BARALHO.c

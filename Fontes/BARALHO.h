@@ -126,12 +126,6 @@
 *  $ED Descrição da função
 *     Cria uma lista duplamente encadeada vazia.
 *
-*  $EP Parâmetros
-*     ExcluirValor  - ponteiro para a função que processa a
-*                     exclusão do valor referenciado pelo elemento
-*                     a ser excluído.
-*                     Ver descrição do módulo.
-*
 *  $FV Valor retornado
 *     Se executou corretamente retorna o ponteiro para a lista.
 *     Este ponteiro será utilizado pelas funções que manipulem o baralho.
@@ -141,8 +135,7 @@
 *     Não será dada mais informação quanto ao problema ocorrido.
 *
 ***********************************************************************/
-   LIS_tppLista BAR_CriarBaralho(
-             void   ( * ExcluirValor ) ( void * pDado ) ) ;
+   LIS_tppLista BAR_CriarBaralho( ) ;
 
 /***********************************************************************
 *
@@ -160,7 +153,7 @@
 *     Se ocorreu algum erro ou o baralho estiver vazio, retornará NULL.
 *
 ***********************************************************************/
-   BAR_tpCarta BAR_PedirCarta( LIS_tppLista * Baralho ) ;
+   BAR_tpCarta BAR_PedirCarta( LIS_tppLista Baralho ) ;
 
 /***********************************************************************
 *
@@ -183,8 +176,8 @@
 *        inserida novamente.
 *
 ***********************************************************************/
-   LIS_tpCondRet BAR_DevolverCarta( LIS_tppLista * Baralho ,
-	                           BAR_tpCarta Carta       ) ;
+   LIS_tpCondRet BAR_DevolverCarta( LIS_tppLista Baralho ,
+	                                BAR_tpCarta Carta     ) ;
 
 /***********************************************************************
 *
@@ -205,7 +198,7 @@
 *     Se o baralho não estiver vazio será limpo antes de iniciar o preenchimento.
 *
 ***********************************************************************/
-   LIS_tpCondRet BAR_SetarBaralho( LIS_tppLista * Baralho ) ;
+   LIS_tpCondRet BAR_SetarBaralho( LIS_tppLista Baralho ) ;
 
 /***********************************************************************
 *
@@ -226,7 +219,7 @@
 *     Se o baralho não estiver vazio será limpo antes de iniciar o preenchimento.
 *
 ***********************************************************************/
-   LIS_tpCondRet BAR_SetarBaralhoTruco( LIS_tppLista * Baralho ) ;
+   LIS_tpCondRet BAR_SetarBaralhoTruco( LIS_tppLista Baralho ) ;
 
 /***********************************************************************
 *
@@ -242,5 +235,8 @@
 *     Libera a memória de cada carta do baralho e da própria estrutura ao final.
 *
 ***********************************************************************/
-   void BAR_DestruirBaralho( LIS_tppLista * Baralho ) ;
+   void BAR_DestruirBaralho( LIS_tppLista Baralho ) ;
 
+#undef BARALHO_EXT
+
+/********** Fim do módulo de definição: BAR Controlador do Tipo Baralho **********/
