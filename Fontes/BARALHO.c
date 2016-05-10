@@ -78,7 +78,7 @@
 
 /***************************************************************************
 *
-*  Função: BAR  &Pedir Carta
+*  Função: BAR  &Devolver Carta
 *  ****/
 
    LIS_tpCondRet BAR_DevolverCarta( LIS_tppLista Baralho ,
@@ -98,7 +98,7 @@
 	   condRet = LIS_InserirElementoApos( Baralho, Carta );
 
 	   return condRet;
-   }
+   } /* Fim função: BAR &Devolver Carta */
 
 /***************************************************************************
 *
@@ -117,15 +117,102 @@
 
 	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++ )
 	   {
-		   for( valor = BAR_As; valor <= BAR_Rei; valo++ )
+		   for( valor = BAR_As; valor <= BAR_Coringa; valor++ )
 		   {
+			   LIS_tpCondRet resultado = NULL;
+			   BAR_tpCarta novaCarta = NULL;
 
-		   }
+			   novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
+			   if( novaCarta == NULL )
+			   {
+				   return LIS_CondRetFaltouMemoria;
+			   } /* if */
+			   novaCarta.naipe = naipe;
+			   novaCarta.valor = valor;
+			   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
+			   if( resultado == LIS_CondRetFaltouMemoria )
+			   {
+			       return LIS_CondRetFaltouMemoria;
+			   }
+		   } /* for */
+	   } /* for */
+
+	   return LIS_CondRetOK;
+   } /* Fim função: BAR &Setar Baralho */
+
+/***************************************************************************
+*
+*  Função: BAR  &Setar Baralho Truco
+*  ****/
+
+   LIS_tpCondRet BAR_SetarBaralhoTruco( LIS_tppLista Baralho )
+   {
+	   BAR_tpNaipe naipe = NULL;
+	   BAR_tpValores valor = NULL;
+
+	   IrInicioLista( Baralho );
+	   if( Baralho.numElem > 0 ){
+		   LimparBaralho( Baralho );
 	   }
 
-   }
+	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++ )
+	   {
+		   for( valor = BAR_As; valor <= BAR_Rei; valor++ )
+		   {
+			   if( valor != BAR_Oito && valor != BAR_Nove && valor != BAR_Dez )
+			   {
+				   LIS_tpCondRet resultado = NULL;
+				   BAR_tpCarta novaCarta = NULL;
+
+				   novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
+				   if( novaCarta == NULL )
+				   {
+					   return LIS_CondRetFaltouMemoria;
+				   } /* if */
+				   novaCarta.naipe = naipe;
+				   novaCarta.valor = valor;
+				   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
+				   if( resultado == LIS_CondRetFaltouMemoria )
+				   {
+					   return LIS_CondRetFaltouMemoria;
+				   }
+			   }
+		   } /* for */
+	   } /* for */
+	   return LIS_CondRetOK;
+   } /* Fim função: BAR &Setar Baralho Truco */
+
+/***************************************************************************
+*
+*  Função: BAR  &Destruir Baralho
+*  ****/
+
+   void BAR_DestruirBaralho( LIS_tppLista Baralho )
+   {
+	   Baralho.ExcluirValor = & ExcluirCarta;
+	   LIS_DestruirLista( Baralho );
+	   free( Baralho );
+   } /* Fim função: BAR &Destruir Baralho
 
 /*****  Código das funções encapsuladas no módulo  *****/
+
+/***********************************************************************
+*
+*  $FC Função: BAR - Limpar Baralho
+*
+*  $ED Descrição da função
+*     Recebe um ponteiro para uma lista, atribui a função ExcluirCarta
+*        ao atributo ExcluirValor e chama a LIS_EsvaziarLista. Depois, 
+*        volta a atribuir a PlaceholderLista ao ExcluirValor.
+*
+***********************************************************************/
+
+   void LimparBaralho( LIS_tppLista Baralho )
+   {
+	   Baralho.ExcluirValor = & ExcluirCarta;
+	   LIS_EsvaziarLista( Baralho );
+	   Baralho.ExcluirValor = & PlaceholderLista;
+   }
 
 /***********************************************************************
 *

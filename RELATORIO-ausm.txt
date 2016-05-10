@@ -5,3 +5,4 @@
 08/05/2016  2:00 		Codificar Módulo        Elaboração do BARALHO.h		
 09/05/2016  0:30                Estudar                 Iteração de enums em C, funcionamento do módulo GERAALT.
 09/05/2016  1:30                Codificar Módulo        Primeiras funções do BARALHO.c
+09/05/2016  1:00                Codificar Módulo        Últimas funções do BARALHO.c
