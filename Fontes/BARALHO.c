@@ -1,4 +1,4 @@
-/***************************************************************************
+ /* **************************************************************************
 *  $MCI Módulo de implementação: BAR  Controlador do Tipo Baralho
 *
 *  Arquivo gerado:              BARALHO.c
@@ -14,7 +14,8 @@
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
 *     1       ausm  07/mai/2016  Início desenvolvimento
-***************************************************************************/
+************************************************************************** */
+
 #include "LISTA.h"
 #include "GERAALT.h"
 
@@ -28,7 +29,9 @@
 
    static void LimparBaralho( LIS_tppLista Baralho );
    static void PlaceholderLista( BAR_tpCarta * carta );
-   static void ExcluirCarta( BAR_tpCarta * carta );
+   static void ExcluirCarta( void* carta );
+   static BAR_tpNaipes BAR_IncrementarNaipe(BAR_tpNaipes Naipe);
+   static BAR_tpValores BAR_IncrementarValor(BAR_tpValores Valor);
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -61,7 +64,7 @@
 	   int numeroAleatorio,
 		   tamanhoBaralho;
 
-	   tamanhoBaralho = Baralho.numElem;
+	   tamanhoBaralho = LIS_NumerodeElementos(Baralho);
 
 	   ALT_Inicializar( 1 );
 	   numeroAleatorio = ALT_GerarDistUniforme( 0, tamanhoBaralho );
@@ -90,7 +93,7 @@
 	   int numeroAleatorio ,
 		   tamanhoBaralho;
 
-	   tamanhoBaralho = Baralho.numElem;
+	   tamanhoBaralho = LIS_NumerodeElementos(Baralho);
 
 	   ALT_Inicializar( 1 );
 	   numeroAleatorio = ALT_GerarDistUniforme( 0, tamanhoBaralho );
@@ -115,11 +118,11 @@
 	   BAR_tpCarta* novaCarta ;
 
 	   IrInicioLista( Baralho );
-	   if( Baralho.numElem > 0 ){
+	   if( LIS_NumerodeElementos(Baralho) > 0 ){
 		   LimparBaralho( Baralho );
 	   }
 
-	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++ )
+	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++)
 	   {
 		   for( valor = BAR_As; valor < BAR_Coringa; valor++ )
 		   {
@@ -184,14 +187,14 @@
 	   BAR_tpValores valor;
 
 	   LIS_tpCondRet resultado;
-	   BAR_tpCarta novaCarta;
+	   BAR_tpCarta* novaCarta;
 
 	   IrInicioLista( Baralho );
-	   if( Baralho.numElem > 0 ){
+	   if( LIS_NumerodeElementos(Baralho) > 0 ){
 		   LimparBaralho( Baralho );
 	   }
 
-	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++ )
+	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++)
 	   {
 		   for( valor = BAR_As; valor <= BAR_Rei; valor++ )
 		   {
@@ -204,8 +207,8 @@
 				   {
 					   return LIS_CondRetFaltouMemoria;
 				   } /* if */
-				   novaCarta.naipe = naipe;
-				   novaCarta.valor = valor;
+				   novaCarta->naipe = naipe;
+				   novaCarta->valor = valor;
 				   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
 				   if( resultado == LIS_CondRetFaltouMemoria )
 				   {
@@ -224,7 +227,6 @@
 
    void BAR_DestruirBaralho( LIS_tppLista Baralho )
    {
-	   Baralho.ExcluirValor = & ExcluirCarta;
 	   LIS_DestruirLista( Baralho );
 	   free( Baralho );
    } /* Fim função: BAR &Destruir Baralho
@@ -243,9 +245,7 @@
 
    void LimparBaralho( LIS_tppLista Baralho )
    {
-	   Baralho.ExcluirValor = & ExcluirCarta;
 	   LIS_EsvaziarLista( Baralho );
-	   Baralho.ExcluirValor = & PlaceholderLista;
    }
 
 /***********************************************************************
@@ -277,4 +277,55 @@
    void ExcluirCarta( void * carta )
    {
 	   free( carta );
-   } /* Fim função: BAR - Excluir Carta
+   } /* Fim função: BAR - Excluir Carta */
+
+/***********************************************************************
+*
+*  $FC Função: BAR - Incrementar Naipe
+*
+*  $ED Descrição da função
+*     Incrementa naipe segundo a ordem: paus->copas->espadas->ouros->paus
+*
+***********************************************************************/
+
+
+   static BAR_tpNaipes BAR_IncrementarNaipe(BAR_tpNaipes Naipe)
+   {
+	   if(Naipe == BAR_Paus) return BAR_Copas;
+	   if(Naipe == BAR_Copas) return BAR_Espadas;
+	   if(Naipe == BAR_Espadas) return BAR_Ouros;
+	   if(Naipe == BAR_Ouros) return BAR_Paus;
+   }
+
+   /***********************************************************************
+*
+*  $FC Função: BAR - Incrementar valor
+*
+*  $ED Descrição da função
+*     incrementa valor de carta segundo a ordem As->...->10->J->Q->K->A
+*		Joker se incrementa para si mesmo.
+*
+***********************************************************************/
+
+
+
+   static BAR_tpValores BAR_IncrementarValor(BAR_tpValores Valor)
+   {
+	   if(Valor == BAR_Coringa) return BAR_Coringa;
+	   if(Valor == BAR_Rei) return BAR_As;
+	   if(Valor == BAR_As) return BAR_Dois;
+	   if(Valor == BAR_Dois) return BAR_Tres;
+	   if(Valor == BAR_Tres) return BAR_Quatro;
+	   if(Valor == BAR_Quatro) return BAR_Cinco;
+	   if(Valor == BAR_Cinco) return BAR_Seis;
+	   if(Valor == BAR_Seis) return BAR_Sete;
+	   if(Valor == BAR_Sete) return BAR_Oito;
+	   if(Valor == BAR_Oito) return BAR_Nove;
+	   if(Valor == BAR_Nove) return BAR_Dez;
+	   if(Valor == BAR_Dez) return BAR_Valete;
+	   if(Valor == BAR_Valete) return BAR_Rainha;
+	   if(Valor == BAR_Rainha) return BAR_Rei;
+
+   }
+
+   //fim baralho.c
