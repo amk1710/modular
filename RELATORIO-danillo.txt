@@ -1,0 +1,12 @@
+   Data     Horas Trabalhadas   Tipo Tarefa               Descrição da Tarefa Realizada
+
+02/05/2016  1:00                Estudar                   Estudar arquitetura  
+02/05/2016  2:00                projetar                  Definir a arquitetura       
+04/05/2016  1:00                Estudar                   Estudar Modelo estrutural e assertivas  
+04/05/2016  1:00                projetar                  Definir o modelo estrutural                        
+08/05/2016  2:00 		Especificar os módulos    Especificação dos módulos Interface e Jogo      		           
+09/05/2016  2:00                Revisar Projetos          Rever o modelo estrutural e a arquitetura                     
+09/05/2016  2:00                Especificar as funções    Redefinir algumas funções dos módulos Interface e Jogo                       
+09/05/2016  2:00                Especificar os módulos    Especificação dos módulos Interface e Jogo
+09/05/2016  1:00                Revisar código do módulo  revisar o baralho.c                                
+                                                 
