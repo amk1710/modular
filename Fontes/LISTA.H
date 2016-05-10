@@ -311,6 +311,26 @@ typedef struct LIS_tagLista * LIS_tppLista ;
    LIS_tpCondRet LIS_AvancarElementoCorrente( LIS_tppLista pLista ,
                                               int numElem ) ;
 
+/***********************************************************************
+*
+*  $FC Função: LIS  &Numero de Elementos
+*
+*  $ED Descrição da função
+*     retorna o numero de elementos na lista passada
+*
+*  $EP Parâmetros
+*     pLista  - ponteiro para a lista
+*     
+*
+*  $FV Valor retornado
+*     Um valor inteiro não negativo
+*
+***********************************************************************/
+
+
+   int LIS_NumerodeElementos( LIS_tppLista pLista);
+
+
 
 /***********************************************************************
 *
