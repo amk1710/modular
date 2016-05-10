@@ -1,0 +1,14 @@
+30/03 ; 1h30m ; estudar ; leitura sobre teste específico
+10/04 - 1h30m - estudar ; instalação e leitura sobre teste específico
+19/04 - 1h30m - revisar script de teste ; entendimento do teste de lista
+21/04 - 3h00m - revisar script de teste ; melhoria do teste de lista
+24/04 - 1h15m - projetar ; 
+06/05 - 5h00m - especificar as funções ; documentação  e baralho.h
+06/05 - 3h00m - codificar modulo ; baralho.h
+07/05 - 1h30m - revisar script de teste ; tentativa de rodar testes de geraalt
+08/05 - 1h30m - codificar módulo ; testebar.c
+08/05 - 2h00m - códificar módulo ; testebar.c
+09/05 - revisar script de teste - arrumar pastas para entrega
+09/05 - 0h30m - estudar ; consulta com o professor
+09/05 - 1h00m - redigir script de teste - refazer teste de baralho
+10/05 - 5h10m - diagnosticar e corrigir os problemas encontrados ; modulo baralho e seus testes

@@ -1,0 +1,24 @@
+# Composicao do programa de teste de o modulo baralho
+# Este exemplo utiliza o arcabouço completo 
+
+[Diretorios]
+
+Nome        =  TesteBaralho
+PathDefault =  .
+err         =  .
+
+[Modulos]
+TestBar
+Lista
+GeraAlt
+Baralho
+
+[BuildInicio]
+/OUT:TesteBaralho.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

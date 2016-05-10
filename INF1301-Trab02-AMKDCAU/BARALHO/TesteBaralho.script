@@ -1,0 +1,155 @@
+// Script:    TesteBaralho.script
+// Autor:     André Mazal Krauss
+// Data:      08/mai/2016
+// Propósito: Testar o módulo baralho
+//
+//
+
+== Inicializar valores
+
+
+=declararparm   naipe   int  0
+=declararparm   valor   int  5
+=declararparm   naipe2  int  1
+=declararparm   valor2  int  11
+
+=declararparm 	OK		int 0
+=declararparm	FaltouMemoria	int 1
+
+=declararparm	pNULL		int 0
+=declararparm	pNaoNULL	int 1
+
+
+
+
+==cria baralho
+=criarbaralho
+
+==coloca uma carta no baralho, e a retira, testando se está correta.
+=testardevolucao naipe valor OK
+=compararcompra  naipe valor
+
+== coloca outra carta no baralho e a retira, testando se está correta
+=testardevolucao naipe2 valor2 OK
+=compararcompra  naipe2 valor2
+
+==seta baralho convencional
+=testarsetarbaralho OK
+
+==compra suas 54 cartas
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//10
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//20
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//30
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//40
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//50
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//54 cartas impressas no log
+
+==seta baralho de truco e compra suas 40 cartas. Nenhum valor abaixo deve ser igual a 7, 8, ou 9(valor real -1)
+=testarsetarbaralhotruco OK
+
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//10
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//20
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//30
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+=testarcompra	pNaoNULL
+//40 cartas compradas e impressas no log
+==destroi o baralho
+
+=testardestruir
+
+
+
+
+// fim

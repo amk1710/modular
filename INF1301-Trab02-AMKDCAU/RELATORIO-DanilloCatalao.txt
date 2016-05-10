@@ -1,0 +1,11 @@
+02/04 ; 1h30m ; estudar ; slides
+06/04 - 1h30m - estudar ; instalação arcabouço
+12/04 - 1h30m - revisar especificações; especificação de requisitos
+21/04 - 3h00m - especificar os módulos; documentação 
+24/04 - 1h15m - projetar ; 
+08/05 - 1h30m - especificar módulo ; interface
+08/05 - 2h00m - revisar especificação ; interface
+09/05 - revisar script de teste - arrumar pastas para entrega
+09/05 - 0h30m - estudar ; consulta com o professor
+09/05 - 1h00m - redigir script de teste - refazer teste de baralho
+

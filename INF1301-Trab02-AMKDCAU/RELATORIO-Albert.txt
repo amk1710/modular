@@ -1,0 +1,11 @@
+30/03 ; 1h30m ; estudar ; leitura
+17/04 - 1h30m - estudar ; instalação
+24/04 - 1h15m - projetar ; 
+03/05 - 2h00m - revisar especificações ; trabalhos da aula
+06/05 - 3h00m - codificar modulo ; baralho.h
+06/05 - 1h30m - revisar codigo do modulo ; baralho.h
+08/05 - 1h30m - codificar módulo ; baralho.c
+08/05 - 2h00m - códificar módulo ; baralho.c
+09/05 - revisar codigo do modulo ; baralho.c
+10/05 - 4h00m - revisar codificacao do módulo ; baralho.c
+

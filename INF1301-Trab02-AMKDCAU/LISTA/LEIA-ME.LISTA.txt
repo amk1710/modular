@@ -1,0 +1,67 @@
+Programa TesteLista.exe - LEIA-ME
+
+T2 INF 1301 de André, Albert e Danilo.
+
+
+Para realizar os testes para o módulo Lista Genérica duplamente encadeada,
+siga os seguintes passos:
+
+	1 - Mude os seguinte arquivos de nome, da seguinte maneira:
+		Maneira: XXX.exe.txt para XXX.exe
+		Arquivos: compilebanner.exe.txt ; exbestat.exe.txt ; 
+			  GMake.exe.txt; e TesteLista.exe.txt
+		Além destes, 
+		a)ArcaboucoTeste.lib.txt para ArcaboucoTeste.lib
+		b)CompilaTudo.bat.txt para CompilaTudo.bat
+		c) TesteTudo.bat.txt para TesteTudo.bat
+		d) vsvars32.bat.txt para vsvars32.bat
+
+	2- rode o .bat vsvars32.bat, ou o equivalente para sua IDE. 
+
+
+	3 -  Abra o prompt de comando no diretório lista, e execute o seguinte comando:
+	gmake/CTesteLista.comp
+
+	4 - Rode o .bat CompilaTudo.bat, localizado no mesmo diretório
+
+	5 - Rode o .bat TestaTudo.bat, localizado no mesmo diretório.
+
+	6 - Os resultados serão exibidos no próprio prompt de comando. 
+	Caso se deseje mais detalhes, eles serão encontrados no arquivo TesteLista.log,
+	no próprio diretório lista.
+
+obs: caso seja perguntado sobre a criação de qualquer arquivo durante os passos acima, aceite.
+
+
+
+
+Comandos disponíveis:
+=resetteste
+           - anula o vetor de listas. Provoca vazamento de memória
+     =criarlista                   inxLista
+		- cria uma nova lista de numero inxLista.
+     =destruirlista                inxLista
+		- destroi a lista de numero inxLista
+     =esvaziarlista                inxLista
+		- remove todos elementos da lista de numero inxLista,
+		  sem contudo destruí-la.
+     =inselemantes                 inxLista  string  CondRetEsp
+		- insere um novo elemento(string) antes do elemento corrente.
+     =inselemapos                  inxLista  string  CondRetEsp
+		- insere um novo elemento(string) após o elemento corrente
+     =obtervalorelem               inxLista  string  CondretPonteiro
+		 - obtém o valor do elemento corrente, e o compara com a
+		   string passada. se forem diferentes, resultará em erro
+     =excluirelem                  inxLista  CondRetEsp
+		- exclui o elemento corrente da lista
+     =irinicio                     inxLista
+		- o elemento corrente da lista vira o seu primeiro elemento
+     =irfinal                      inxLista
+		- o elemento corrente da lista vira seu último elemento
+     =avancarelem                  inxLista  numElem CondRetEsp
+		- avança numElem elementos na lista de número inxLista.
+		  Positivo avança para o final, negativo para o início.
+
+	obs: todos os parâmetros são int, exceto o 'string', que é char*.
+	     só são suportadas 10 listas diferentes, assim, inxLista deve
+	     ser um número inteiro entre 0 e 9.

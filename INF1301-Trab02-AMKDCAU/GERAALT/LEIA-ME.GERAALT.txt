@@ -1,0 +1,38 @@
+Programa testealeatorio.exe
+
+Deve ser chamado da seguinte forma:
+
+Da linha de comando, no diretório GERAALT:
+
+testealeatorio.exe /s<nome do arquivo de teste>.script
+
+ex: testealeatorio.exe /sTesteAleatorio.script
+
+É um programa que lê o arquivo de script e faz os testes seguindo
+a linguagem do arcabouço.
+
+Antes de realizar o teste, altere o nome de 'testealeatorio.exe.txt'
+para 'testealeatorio.exe'
+
+Comandos disponíveis:
+=inicializar - deve ser chamado antes de outros comandos de teste. Recebe um 
+	parâmetro int que determina a seed usada pelo programa. 0 indica PI, 1 indica
+	Pi|Time, qualquer outro valor é ele próprio.
+=exibiruniforme - exibe uma distribuição uniforme de acordo com os parâmetros
+	passados. São cinco parâmetros ao todo: o primeiro é um inteiro que determina
+	a quantidade de números a serem gerados. Os próximos dois são dois inteiros
+	que são os limites inferior e superior da distribuição respectivamente. Os dois
+	últimos são floats que determinam o desvio esperado e a tolerância, respectivamente.
+=exibirfrequencia - exibe uma dada distribuição de frequencias. Recebe um parâmetro int
+	que determina a quantidade de números a serem gerados e outro parametro int que é
+	o limite. 
+=exibirpermutacao - exibe uma permutação de um vetor. Recebe também dois parâmetros int, que são o numero de gerados e o numero
+	de elementos no vetor.
+
+
+O módulo geralt e seus testes foram desenvolvidos e implementados pela equipe
+do arcabouço para a automação de testes de programas redigidos em C. Já que utilizamos
+o módulo em nosso trabalho, adicionamos aqui os testes do módulo, comprovando sua existência,
+completeza e corretude. Já que não desenvolvemos os teste, incluímos somente o .exe e .script do teste, 
+e não as ferramentas para sua recompilação. Estas estão disponíveis na íntegra no arcabouço
+de testes automatizados, de onde obtivemos tanto o teste do módulo quanto seus arquivos fontes.
