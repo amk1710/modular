@@ -337,8 +337,8 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 *
 ***********************************************************************/
 
-//   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
-  //                                 void * pValor        ) ;
+   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
+                                   void * pValor        ) ;
 
 #undef LISTA_EXT
 

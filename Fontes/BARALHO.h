@@ -1,5 +1,6 @@
 #if ! defined( BARALHO_ )
 #define BARALHO_
+
 /***************************************************************************
 *
 *  $MCD Módulo de definição: BAR Controlador do Tipo Baralho
@@ -165,7 +166,7 @@
 *  $EP Parâmetros
 *     LIS_tppLista - Ponteiro para a cabeça da lista baralho
 *
-*     BAR_tpCarta - Variável do tipo carta
+*     BAR_tpCarta - Ponteiro para variável do tipo carta
 *
 *  $FV Valor retornado
 *     Retorna um uma condição de retorno global do módulo lista, 
@@ -240,3 +241,6 @@
 #undef BARALHO_EXT
 
 /********** Fim do módulo de definição: BAR Controlador do Tipo Baralho **********/
+
+#else
+#endif

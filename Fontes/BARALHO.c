@@ -15,8 +15,10 @@
 *     Versão  Autor    Data     Observações
 *     1       ausm  07/mai/2016  Início desenvolvimento
 ***************************************************************************/
-#include <LISTA.h>
-#include <GERAALT.h>
+#include "LISTA.h"
+#include "GERAALT.h"
+
+#include <stdlib.h>
 
 #define BARALHO_OWN
 #include "BARALHO.h"
@@ -37,9 +39,9 @@
 
    LIS_tppLista BAR_CriarBaralho( )
    {
-	   LIS_tppLista baralho = NULL;
+	   LIS_tppLista baralho;
 
-	   baralho = LIS_CriarLista( & ExcluirCarta );
+	   baralho = LIS_CriarLista( ExcluirCarta );
 	   if( baralho == NULL )
 	   {
 		   return NULL;
@@ -55,26 +57,26 @@
 
    BAR_tpCarta BAR_PedirCarta( LIS_tppLista Baralho )
    {
-	   BAR_tpCarta * carta = NULL;
-	   int numeroAleatorio = NULL ,
-		   tamanhoBaralho = NULL   ;
+	   BAR_tpCarta * carta;
+	   int numeroAleatorio,
+		   tamanhoBaralho;
 
 	   tamanhoBaralho = Baralho.numElem;
 
-	   ALT_Inicializar( 0 );
+	   ALT_Inicializar( 1 );
 	   numeroAleatorio = ALT_GerarDistUniforme( 0, tamanhoBaralho );
 
 	   IrInicioLista( Baralho );
 	   LIS_AvancarElementoCorrente( Baralho, numeroAleatorio );
-	   carta = LIS_ObterValor( Baralho );
+	   carta = (BAR_tpCarta*) LIS_ObterValor( Baralho );
 
 	   if( carta != NULL )
 	   {
 		   LIS_ExcluirElemento( Baralho );
 	   }
 
-	   return carta;
-   } /* Fim função: BAR &Pedir Carta */
+	   return *carta;
+   } /* Fim fun*ção: BAR &Pedir Carta */
 
 /***************************************************************************
 *
@@ -84,18 +86,18 @@
    LIS_tpCondRet BAR_DevolverCarta( LIS_tppLista Baralho ,
 	                                BAR_tpCarta Carta     )
    {
-	   LIS_tpCondRet * condRet = NULL;
-	   int numeroAleatorio = NULL ,
-		   tamanhoBaralho = NULL   ;
+	   LIS_tpCondRet condRet;
+	   int numeroAleatorio ,
+		   tamanhoBaralho;
 
 	   tamanhoBaralho = Baralho.numElem;
 
-	   ALT_Inicializar( 0 );
+	   ALT_Inicializar( 1 );
 	   numeroAleatorio = ALT_GerarDistUniforme( 0, tamanhoBaralho );
 
 	   IrInicioLista( Baralho );
 	   LIS_AvancarElementoCorrente( Baralho, numeroAleatorio );
-	   condRet = LIS_InserirElementoApos( Baralho, Carta );
+	   condRet = LIS_InserirElementoApos( Baralho, &Carta );
 
 	   return condRet;
    } /* Fim função: BAR &Devolver Carta */
@@ -107,8 +109,10 @@
 
    LIS_tpCondRet BAR_SetarBaralho( LIS_tppLista Baralho )
    {
-	   BAR_tpNaipe naipe = NULL;
-	   BAR_tpValores valor = NULL;
+	   BAR_tpNaipes naipe;
+	   BAR_tpValores valor;
+	   LIS_tpCondRet resultado;
+	   BAR_tpCarta* novaCarta ;
 
 	   IrInicioLista( Baralho );
 	   if( Baralho.numElem > 0 ){
@@ -117,18 +121,17 @@
 
 	   for( naipe = BAR_Paus; naipe <= BAR_Ouros; naipe++ )
 	   {
-		   for( valor = BAR_As; valor <= BAR_Coringa; valor++ )
+		   for( valor = BAR_As; valor < BAR_Coringa; valor++ )
 		   {
-			   LIS_tpCondRet resultado = NULL;
-			   BAR_tpCarta novaCarta = NULL;
+			   
 
 			   novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
 			   if( novaCarta == NULL )
 			   {
 				   return LIS_CondRetFaltouMemoria;
 			   } /* if */
-			   novaCarta.naipe = naipe;
-			   novaCarta.valor = valor;
+			   novaCarta->naipe = naipe;
+			   novaCarta->valor = valor;
 			   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
 			   if( resultado == LIS_CondRetFaltouMemoria )
 			   {
@@ -136,6 +139,36 @@
 			   }
 		   } /* for */
 	   } /* for */
+
+	   // Primeiro Joker
+	   novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
+	   if( novaCarta == NULL )
+		{
+				   return LIS_CondRetFaltouMemoria;
+		} /* if */
+	   novaCarta->naipe = BAR_Paus;
+	   novaCarta->valor = BAR_Coringa;
+	   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
+		if( resultado == LIS_CondRetFaltouMemoria )
+		{
+			return LIS_CondRetFaltouMemoria;
+		} /* if */
+
+		// segundo Joker
+		novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
+	   if( novaCarta == NULL )
+		{
+				   return LIS_CondRetFaltouMemoria;
+		} /* if */
+	   novaCarta->naipe = BAR_Paus;
+	   novaCarta->valor = BAR_Coringa;
+	   resultado = LIS_InserirElementoApos( Baralho, novaCarta );
+		if( resultado == LIS_CondRetFaltouMemoria )
+		{
+			return LIS_CondRetFaltouMemoria;
+		} /* if */
+
+		// fim jokers 
 
 	   return LIS_CondRetOK;
    } /* Fim função: BAR &Setar Baralho */
@@ -147,8 +180,11 @@
 
    LIS_tpCondRet BAR_SetarBaralhoTruco( LIS_tppLista Baralho )
    {
-	   BAR_tpNaipe naipe = NULL;
-	   BAR_tpValores valor = NULL;
+	   BAR_tpNaipes naipe;
+	   BAR_tpValores valor;
+
+	   LIS_tpCondRet resultado;
+	   BAR_tpCarta novaCarta;
 
 	   IrInicioLista( Baralho );
 	   if( Baralho.numElem > 0 ){
@@ -161,8 +197,7 @@
 		   {
 			   if( valor != BAR_Oito && valor != BAR_Nove && valor != BAR_Dez )
 			   {
-				   LIS_tpCondRet resultado = NULL;
-				   BAR_tpCarta novaCarta = NULL;
+				   
 
 				   novaCarta = ( BAR_tpCarta * ) malloc( sizeof( BAR_tpCarta )) ;
 				   if( novaCarta == NULL )
@@ -193,7 +228,6 @@
 	   LIS_DestruirLista( Baralho );
 	   free( Baralho );
    } /* Fim função: BAR &Destruir Baralho
-
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
@@ -227,9 +261,8 @@
 
    void PlaceholderLista( BAR_tpCarta * carta )
    {
-	   return 0;
+	   return ;
    } /* Fim função: BAR - Placeholder Lista
-
 /***********************************************************************
 *
 *  $FC Função: BAR - Excluir Carta
@@ -241,7 +274,7 @@
 *
 ***********************************************************************/
 
-   void ExcluirCarta( BAR_tpCarta * carta )
+   void ExcluirCarta( void * carta )
    {
 	   free( carta );
    } /* Fim função: BAR - Excluir Carta

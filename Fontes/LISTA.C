@@ -450,35 +450,46 @@
 *  Função: LIS  &Procurar elemento contendo valor
 *  ****/
 //
-//   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
-//                                    void * pValor        )
-//   {
-//
-//      tpElemLista * pElem;
-//
-//      #ifdef _DEBUG
-//         assert( pLista  != NULL ) ;
-//      #endif
-//
-//      if ( pLista->pElemCorr == NULL )
-//      {
-//         return LIS_CondRetListaVazia ;
-//      } /* if */
-//// pq pLista->pElemCorr, e não o primeiro elem???
-//      for ( pElem  = pLista->pOrigemLista ;
-//            pElem != NULL ;
-//            pElem  = pElem->pProx )
-//      {
-//         if ( pElem->pValor == pValor )
-//         {
-//            pLista->pElemCorr = pElem ;
-//            return LIS_CondRetOK ;
-//         } /* if */
-//      } /* for */
-//
-//      return LIS_CondRetNaoAchou ;
-//
-//   } /* Fim função: LIS  &Procurar elemento contendo valor */
+   LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
+                                    void * pValor        )
+   {
+
+      tpElemLista * pElem;
+
+      #ifdef _DEBUG
+         assert( pLista  != NULL ) ;
+      #endif
+
+      if ( pLista->pElemCorr == NULL )
+      {
+         return LIS_CondRetListaVazia ;
+      } /* if */
+// pq pLista->pElemCorr, e não o primeiro elem???
+      for ( pElem  = pLista->pOrigemLista ;
+            pElem != NULL ;
+            pElem  = pElem->pProx )
+      {
+         if ( pElem->pValor == pValor )
+         {
+            pLista->pElemCorr = pElem ;
+            return LIS_CondRetOK ;
+         } /* if */
+      } /* for */
+
+      return LIS_CondRetNaoAchou ;
+
+   } 
+   
+   /* Fim função: LIS  &Procurar elemento contendo valor */
+
+
+//******************************************************
+   /* Função: LIS &Numero de Elementos */
+
+    int LIS_NumerodeElementos( LIS_tppLista pLista)
+	{
+		return pLista->numElem;
+	}
 
 
 /*****  Código das funções encapsuladas no módulo  *****/
