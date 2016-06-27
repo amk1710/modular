@@ -8,4 +8,5 @@
 08/05 - 2h00m - códificar módulo ; baralho.c
 09/05 - revisar codigo do modulo ; baralho.c
 10/05 - 4h00m - revisar codificacao do módulo ; baralho.c
-
+
+
