@@ -20,11 +20,7 @@
 *     1       ausm  20/JUN/2016  início desenvolvimento
 *
 *  $ED Descrição do módulo
-*     Implementa o tipo de dados carta, e gera uma variável do tipo lista
-*        que será preenchida por variáveis do tipo carta.
-*
-*     O baralho não será embaralhado, mas retornará uma carta aleatória 
-*        quando for pedido, e a mesma será retirada da lista.
+*     Implementa a interface do usuário.
 *
 ***************************************************************************/
  
@@ -47,9 +43,9 @@
 *     
 *
 ***********************************************************************/
-   void INT_InicializaJogo( tpElemLista* jogadores , 
-   								Equipe* equipeA , 
-   								Equipe* equipeB ) ;
+   void INT_InicializaJogo( tpElemLista * jogadores , 
+   								Equipe * equipeA , 
+   								Equipe * equipeB ) ;
 
 /***********************************************************************
 *
@@ -62,7 +58,7 @@
 *     Exibido na tela
 *
 ***********************************************************************/
-   void INT_ExibirMesa( tpElemLista* Descarte ) ;
+   void INT_ExibirMesa( tpElemLista * Descarte ) ;
 
 /***********************************************************************
 *
@@ -99,7 +95,7 @@
 *
 *  $FV Valor retornado
 *     Valor de retorno: 1 para caso tenho pedido truco, 
-*     0 para caso tenha prosseguido com a jogada.
+*        0 para caso tenha prosseguido com a jogada.
 *
 ***********************************************************************/
    int INT_PedirTruco() ;
@@ -113,8 +109,55 @@
 *
 *  $FV Valor retornado
 *     1 caso tenha aceitado, 
-*     retorna 2 caso tenha recusado,
-*     retorna 3 caso tenha retrucado.
+*        retorna 2 caso tenha recusado,
+*        retorna 3 caso tenha retrucado.
 *
 ***********************************************************************/
    int INT_ResponderTruco() ;
+
+/***********************************************************************
+*
+*  $FC Função: INT  &Terminar Rodada
+*
+*  $ED Descrição da função
+*     Exibe o nome do jogador que ganhou aquela rodada, e a sua equipe. Em
+*	      casos de empate exibe que aquela rodada não teve vencedor.
+*
+*  $FV Valor retornado
+*     
+*
+***********************************************************************/
+   void INT_TerminarRodada( LIS_tppLista jogadores ) ;
+
+/***********************************************************************
+*
+*  $FC Função: INT  &Terminar Mão
+*
+*  $ED Descrição da função
+*     Exibe a equipe que venceu aquela mão, e quantos pontos ela marcou.
+*
+*  $FV Valor retornado
+*     
+*
+***********************************************************************/
+   void INT_TerminarMao( Equipe * equipe, int * pontuacao ) ;
+
+/***********************************************************************
+*
+*  $FC Função: INT  &Terminar Jogo
+*
+*  $ED Descrição da função
+*     Exibe a equipe que venceu aquela mão, e quantos pontos ela marcou.
+*
+*  $FV Valor retornado
+*     
+*
+***********************************************************************/
+   void INT_TerminarJogo( Equipe * equipeVenceu, Equipe * equipePerdeu ) ;
+
+#undef INTERFACE_EXT
+
+/********** Fim do módulo de definição: INT Controlador da Interface do Usuário **********/
+
+#else
+#endif
