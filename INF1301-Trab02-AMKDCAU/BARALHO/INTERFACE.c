@@ -137,6 +137,8 @@
       int quantidadeCartas, 
           escolhida;
 
+      BAR_tpCarta * carta;
+
       CON_tpMaoJogador jogador;
 
 
@@ -158,7 +160,10 @@
 
       IrInicioLista( jogador->Cartas );
       LIS_AvancarElementoCorrente( jogador->Cartas, escolhida - 1 );
-      return LIS_ObterValor( jogador->Cartas );
+      carta = LIS_ObterValor( jogador->Cartas );
+      LIS_ExcluirElemento( jogador->Cartas );
+      
+      return carta;
    } /* Fim Função: INT &Faz Jogada */
  
 /***************************************************************************
@@ -189,7 +194,7 @@
 
 /***************************************************************************
 *
-*  Função: INT  &Pedir Truco
+*  Função: INT  &Responder Truco
 *****/
 
    int INT_ResponderTruco()
@@ -211,10 +216,36 @@
          } else if( resposta == 84 || resposta == 116 )
          {
             return 3;
-         }
+         } /* if */
          printf("Resposta inválida! Tente novamente.\n");
-      }
+      } /* while */
    } /* Fim Função: INT &Responder Truco
+
+/***************************************************************************
+*
+*  Função: INT  &Terminar Rodada
+*****/
+
+   void INT_TerminarRodada( LIS_tppLista jogadores )
+   {
+      CON_tpMaoJogador vencedor;
+
+      vencedor = LIS_ObterValor( jogadores );
+
+      printf("%s venceu a rodada.\n", vencedor->Nome);
+   } /* Fim Função: INT &Terminar Rodada */
+
+/***************************************************************************
+*
+*  Função: INT  &Terminar Mão
+*****/
+
+   void INT_TerminarMao( CON_tpEquipe equipe, int * pontuacao )
+   {
+      printf("A equipe %s vence a mão com %d pontos.\n", equipe->Nome, pontuacao);
+   } /*Fim Função: INT &Terminar Mão */
+
+
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
