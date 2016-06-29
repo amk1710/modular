@@ -43,9 +43,9 @@
 *     
 *
 ***********************************************************************/
-   void INT_InicializaJogo( tpElemLista * jogadores , 
-   								Equipe * equipeA , 
-   								Equipe * equipeB ) ;
+   void INT_InicializaJogo( LIS_tppLista jogadores , 
+   								CON_tpEquipe equipeA , 
+   								CON_tpEquipe equipeB ) ;
 
 /***********************************************************************
 *
@@ -58,7 +58,7 @@
 *     Exibido na tela
 *
 ***********************************************************************/
-   void INT_ExibirMesa( tpElemLista * Descarte ) ;
+   void INT_ExibirMesa( LIS_tppLista Descarte ) ;
 
 /***********************************************************************
 *
@@ -140,7 +140,7 @@
 *     
 *
 ***********************************************************************/
-   void INT_TerminarMao( Equipe * equipe, int * pontuacao ) ;
+   void INT_TerminarMao( CON_tpEquipe equipe, int * pontuacao ) ;
 
 /***********************************************************************
 *
@@ -153,7 +153,7 @@
 *     
 *
 ***********************************************************************/
-   void INT_TerminarJogo( Equipe * equipeVenceu, Equipe * equipePerdeu ) ;
+   void INT_TerminarJogo( CON_tpEquipe equipeVenceu, CON_tpEquipe equipePerdeu ) ;
 
 #undef INTERFACE_EXT
 

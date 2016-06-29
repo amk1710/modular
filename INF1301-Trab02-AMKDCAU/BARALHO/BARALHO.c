@@ -77,7 +77,7 @@
 	   if(copia == NULL)
 	   {
 		   return NULL;
-	   }
+	   } /* if */
 	   copia->valor = carta->valor;
 	   copia->naipe = carta->naipe;
 
@@ -86,7 +86,7 @@
 		   copia->valor = carta->valor;
 		   copia->naipe = carta->naipe;
 		   LIS_ExcluirElemento( Baralho );
-	   }
+	   } /* if */
 
 	   return copia;
    } /* Fim função: BAR &Pedir Carta */
