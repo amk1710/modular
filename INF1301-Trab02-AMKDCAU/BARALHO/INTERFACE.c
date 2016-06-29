@@ -18,6 +18,7 @@
 
 #include "LISTA.h"
 #include "CONTROLADOR.h"
+#include "BARALHO.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -29,6 +30,7 @@
 /***** Protótipos das funções encapuladas no módulo *****/
 
    static void ExibeTitulo() ;
+   static void MostraCartas( LIS_tppLista cartas ) ;
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -67,27 +69,138 @@
       {
          if( equipes == 0 )
          {
-            printf("Informe os jogadores da equipe A:\n");
+            printf("Informe o nome da equipe A:\n");
+            scanf("%s", equipeA->Nome);
          } else
          {
-            printf("Informe os jogadores da equipe B\n");
+            printf("Informe o nome da equipe B:\n");
+            scanf("%s", equipeB->Nome);
          } /* if */
-         printf("(devem ser %d jogadores", (quantidadeJogadores/2));
+         printf("Informe os nomes dos jogadores (devem ser %d jogadores):\n", (quantidadeJogadores/2));
          for( int i = 0; i < (quantidadeJogadores / 2); i++ )
          {
             jogador = (CON_tpMaoJogador*) malloc(sizeof(CON_tpMaoJogador));
             scanf("%s", jogador->Nome);
-            jogador->Equipe = ( equipes == 0 )?'A':'B';
+            jogador->Equipe = ( equipes == 0 )?equipeA->Nome:equipeB->Nome;
             condRet = LIS_InserirElementoApos( jogadores, jogador );
             if( condRet != LIS_CondRetOK )
             {
                return;
             } /* if */
          } /* for */
+         equipes++;
       } /* while */
-      equipeA->Nome = 'A';
-      equipeA->Pontuacao = 0;
 
-      equipeB->Nome = 'B';
+      equipeA->Pontuacao = 0;
       equipeB->Pontuacao = 0;
-   }  /* Fim função: INT  &Inicializa Jogo
+   }  /* Fim função: INT  &Inicializa Jogo */
+
+/***************************************************************************
+*
+*  Função: INT  &Exibir Mesa
+*****/
+
+   void INT_ExibirMesa( LIS_tppLista Descarte )
+   {
+      printf("|************************************************************|\n|                           MESA                             |\n ************************************************************\n");
+
+      MostraCartas( Descarte );
+   } /* Fim Função: INT &Exibir Mesa */
+
+/***************************************************************************
+*
+*  Função: INT  &Exibe Mão
+*****/
+
+   void INT_ExibeMao( LIS_tppLista jogadores )
+   {
+      CON_tpMaoJogador jogadorAtual;
+
+      jogadorAtual = LIS_ObterValor( jogadores );
+      printf("|************************************************************|\n|                           %s\n ************************************************************\n", jogadorAtual->Nome );
+      MostraCartas( jogadorAtual->Cartas );
+
+   } /* Fim Função: INT &Exibe Mão */
+ 
+/*****  Código das funções encapsuladas no módulo  *****/
+
+/***********************************************************************
+*
+*  $FC Função: INT - Mostra Cartas
+*
+*  $ED Descrição da função
+*     Recebe uma cabeça de lista com elementos do tipo BAR__tpCarta
+*     e imprime na tela de maneira padronizada.
+*
+***********************************************************************/
+   void MostraCartas( LIS_tppLista Cartas )
+   {
+      BAR_tpCarta * carta;
+      int quatindade;
+      char * output;
+
+      quantidade = LIS_NumerodeElementos( Cartas );
+      IrInicioLista( Cartas );
+
+      output = (char *) malloc( 62 * sizeof(char) );
+      for( int i = 0; i < quantidade; i++ )
+      {
+         carta = LIS_ObterValor( Cartas );
+
+         switch( carta->valor)
+         {
+            case BAR_As:
+               strcpy( output, "Ás" );
+               break;
+            case BAR_Dois:
+               strcpy( output, "2" );
+               break;
+            case BAR_Tres:
+               strcpy( output, "3" );
+               break;
+            case BAR_Quatro:
+               strcpy( output, "4" );
+               break;
+            case BAR_Cinco:
+               strcpy( output, "5" );
+               break;
+            case BAR_Seis:
+               strcpy( output, "6" );
+               break;
+            case BAR_Sete:
+               strcpy( output, "7" );
+               break;
+            case BAR_Valete:
+               strcpy( output, "Valete" );
+               break;
+            case BAR_Rainha:
+               strcpy( output, "Rainha" );
+               break;
+            case BAR_Rei:
+               strcpy( output, "Rei" );
+               break;
+         } /* switch */
+         strcat( output, " de " );
+         switch( carta->naipe )
+         {
+            case BAR_Paus:
+               strcat( output, "Paus" );
+               break;
+            case BAR_Copas:
+               strcat( output, "Copas" );
+               break;
+            case BAR_Espadas:
+               strcat( output, "Espadas" );
+               break;
+            case BAR_Ouros:
+               strcat( output, "Ouros" );
+               break;
+         } /* switch */
+         printf( " || %s ||", output ); // no máximo 23 caracteres
+         if( i % 2 == 0 )
+         {
+            printf("\n");
+         } /* if */
+         LIS_AvancarElementoCorrente( Cartas, 1 );
+      } /* for */
+   } /* Fim Função: INT &Mostra Cartas

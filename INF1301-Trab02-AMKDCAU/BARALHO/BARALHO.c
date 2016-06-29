@@ -239,6 +239,7 @@
    {
 	   LIS_DestruirLista( Baralho );
    } /* Fim função: BAR &Destruir Baralho
+   
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
@@ -300,13 +301,13 @@
 
    static BAR_tpNaipes BAR_IncrementarNaipe(BAR_tpNaipes Naipe)
    {
-	   if(Naipe == BAR_Paus) return BAR_Copas;
-	   if(Naipe == BAR_Copas) return BAR_Espadas;
+	   if(Naipe == BAR_Paus) 	return BAR_Copas;
+	   if(Naipe == BAR_Copas) 	return BAR_Espadas;
 	   if(Naipe == BAR_Espadas) return BAR_Ouros;
-	   if(Naipe == BAR_Ouros) return BAR_Paus;
+	   if(Naipe == BAR_Ouros) 	return BAR_Paus;
    }
 
-   /***********************************************************************
+/***********************************************************************
 *
 *  $FC Função: BAR - Incrementar valor
 *
@@ -321,19 +322,19 @@
    static BAR_tpValores BAR_IncrementarValor(BAR_tpValores Valor)
    {
 	   if(Valor == BAR_Coringa) return BAR_Coringa;
-	   if(Valor == BAR_Rei) return BAR_As;
-	   if(Valor == BAR_As) return BAR_Dois;
-	   if(Valor == BAR_Dois) return BAR_Tres;
-	   if(Valor == BAR_Tres) return BAR_Quatro;
-	   if(Valor == BAR_Quatro) return BAR_Cinco;
-	   if(Valor == BAR_Cinco) return BAR_Seis;
-	   if(Valor == BAR_Seis) return BAR_Sete;
-	   if(Valor == BAR_Sete) return BAR_Oito;
-	   if(Valor == BAR_Oito) return BAR_Nove;
-	   if(Valor == BAR_Nove) return BAR_Dez;
-	   if(Valor == BAR_Dez) return BAR_Valete;
-	   if(Valor == BAR_Valete) return BAR_Rainha;
-	   if(Valor == BAR_Rainha) return BAR_Rei;
+	   if(Valor == BAR_Rei) 	return BAR_As;
+	   if(Valor == BAR_As) 		return BAR_Dois;
+	   if(Valor == BAR_Dois) 	return BAR_Tres;
+	   if(Valor == BAR_Tres) 	return BAR_Quatro;
+	   if(Valor == BAR_Quatro) 	return BAR_Cinco;
+	   if(Valor == BAR_Cinco) 	return BAR_Seis;
+	   if(Valor == BAR_Seis) 	return BAR_Sete;
+	   if(Valor == BAR_Sete) 	return BAR_Oito;
+	   if(Valor == BAR_Oito) 	return BAR_Nove;
+	   if(Valor == BAR_Nove) 	return BAR_Dez;
+	   if(Valor == BAR_Dez) 	return BAR_Valete;
+	   if(Valor == BAR_Valete) 	return BAR_Rainha;
+	   if(Valor == BAR_Rainha) 	return BAR_Rei;
 
    }
 

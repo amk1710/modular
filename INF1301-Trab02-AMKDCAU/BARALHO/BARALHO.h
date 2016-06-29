@@ -70,33 +70,33 @@
 
    typedef enum {
 
-         BAR_As ,
+      BAR_As ,
 
-         BAR_Dois ,
+      BAR_Dois ,
 
-         BAR_Tres ,
+      BAR_Tres ,
 
-         BAR_Quatro ,
+      BAR_Quatro ,
 
-		 BAR_Cinco ,
+		BAR_Cinco ,
 
-		 BAR_Seis ,
+		BAR_Seis ,
 
-		 BAR_Sete ,
+		BAR_Sete ,
 
-		 BAR_Oito ,
+		BAR_Oito ,
 
-		 BAR_Nove ,
+		BAR_Nove ,
 		 
-		 BAR_Dez ,
+		BAR_Dez ,
 
-		 BAR_Valete ,
+		BAR_Valete ,
 
-		 BAR_Rainha ,
+		BAR_Rainha ,
 
-		 BAR_Rei ,
+		BAR_Rei ,
 
-		 BAR_Coringa
+		BAR_Coringa
 
    } BAR_tpValores ;
 
