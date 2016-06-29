@@ -121,7 +121,41 @@
       MostraCartas( jogadorAtual->Cartas );
 
    } /* Fim Função: INT &Exibe Mão */
+
+/***************************************************************************
+*
+*  Função: INT  &Faz Jogada
+*****/
+
+   BAR_tpCarta * INT_Fazjogada( LIS_tppLista jogadores )
+   {
+      int quantidadeCartas, 
+          escolhida;
+
+      CON_tpMaoJogador jogador;
+
+
+      jogador = LIS_ObterValor( jogadores );
+
+      quantidadeCartas = LIS_NumerodeElementos( jogador->Cartas );
+
+      printf("Digite o número correspondente à ordem em que a carta aparece na tela:\n");
+      while( escolhida == NULL )
+      {
+         scanf("%d", escolhida);
+         if( escolhida > quantidadeCartas + 1 )
+         {
+            printf("Você informou um número maior que a quantidade de cartas!\n");
+            escolhida = NULL;
+         } /* if */
+      } /* while */
+
+      IrInicioLista( jogador->Cartas );
+      LIS_AvancarElementoCorrente( jogador->Cartas, escolhida - 1 );
+      return LIS_ObterValor( jogador->Cartas );
+   } /* Fim Função: INT &Faz Jogada */
  
+
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
