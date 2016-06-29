@@ -43,25 +43,28 @@
                            CON_tpEquipe equipeA , 
                            CON_tpEquipe equipeB )
    {
-      LIS_tpCondRet condRet;
+      char aux;
 
       int quantidadeJogadores,
           equipes;
 
       CON_tpMaoJogador jogador;
 
+      LIS_tpCondRet condRet;
+
       printf("Informe o número de jogadores:\n");
-      while( quantidadeJogadores == NULL )
+      aux = 0;
+      while( aux == 0 )
       {
          scanf("%u", quantidadeJogadores);
          if( (quantidadeJogadores%2) != 0 || quantidadeJogadores > 6 )
          {
             printf("O número de jogadores deve ser 2, 4 ou 6\n");
-            quantidadeJogadores = NULL;
          } else if( quantidadeJogadores == 0 )
          {
             return;
          } /* if */
+         aux = 1;
       } /* while */
 
       equipes = 0;
@@ -129,6 +132,8 @@
 
    BAR_tpCarta * INT_Fazjogada( LIS_tppLista jogadores )
    {
+      char aux;
+
       int quantidadeCartas, 
           escolhida;
 
@@ -140,14 +145,15 @@
       quantidadeCartas = LIS_NumerodeElementos( jogador->Cartas );
 
       printf("Digite o número correspondente à ordem em que a carta aparece na tela:\n");
-      while( escolhida == NULL )
+      aux = 0;
+      while( aux == 0 )
       {
          scanf("%d", escolhida);
          if( escolhida > quantidadeCartas + 1 )
          {
             printf("Você informou um número maior que a quantidade de cartas!\n");
-            escolhida = NULL;
          } /* if */
+         aux = 1;   
       } /* while */
 
       IrInicioLista( jogador->Cartas );
@@ -155,7 +161,60 @@
       return LIS_ObterValor( jogador->Cartas );
    } /* Fim Função: INT &Faz Jogada */
  
+/***************************************************************************
+*
+*  Função: INT  &Pedir Truco
+*****/
 
+   int INT_PedirTruco()
+   {
+      char truco, aux;
+
+      printf("Você deseja pedir Truco? (S/N)\n");
+
+      aux= 0;
+      while( aux == 0 )
+      {
+         scanf("%c%*c", truco);
+         if( truco == 83 || truco == 115 )
+         {
+            return 1;
+         } else if( truco == 78 || truco == 110 )
+         {
+            return 0;
+         } /* if */
+         truco = NULL;   
+      } /* while */
+   } /* Fim Função: INT &Pedir Truco
+
+/***************************************************************************
+*
+*  Função: INT  &Pedir Truco
+*****/
+
+   int INT_ResponderTruco()
+   {
+      char resposta, aux;
+
+      printf("Truco! Você aceita, recusa ou retruca?\nAceitar(A), Recusar(R), Retrucar(T)\n");
+
+      aux = 0;
+      while( aux == 0 )
+      {
+         scanf("%c%*c", &resposta);
+         if( resposta == 65 || resposta == 97 )
+         {
+            return 1;
+         } else if( resposta == 82 || resposta == 114 )
+         {
+            return 2;
+         } else if( resposta == 84 || resposta == 116 )
+         {
+            return 3;
+         }
+         printf("Resposta inválida! Tente novamente.\n");
+      }
+   } /* Fim Função: INT &Responder Truco
 /*****  Código das funções encapsuladas no módulo  *****/
 
 /***********************************************************************
