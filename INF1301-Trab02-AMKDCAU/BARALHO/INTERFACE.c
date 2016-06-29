@@ -162,7 +162,7 @@
       LIS_AvancarElementoCorrente( jogador->Cartas, escolhida - 1 );
       carta = LIS_ObterValor( jogador->Cartas );
       LIS_ExcluirElemento( jogador->Cartas );
-      
+
       return carta;
    } /* Fim Função: INT &Faz Jogada */
  
@@ -245,6 +245,16 @@
       printf("A equipe %s vence a mão com %d pontos.\n", equipe->Nome, pontuacao);
    } /*Fim Função: INT &Terminar Mão */
 
+/***************************************************************************
+*
+*  Função: INT  &Terminar Jogo
+*****/
+
+   void INT_TerminarJogo( CON_tpEquipe equipeVenceu, CON_tpEquipe equipePerdeu ) 
+   {
+      printf("O jogo termina com a equipe %s fazendo %d pontos\ne a equipe %s fazendo %d pontos!\n", equipeVenceu->Nome, equipeVenceu->Pontuacao, equipePerdeu->Nome, equipePerdeu->Pontuacao);
+      printf("A equipe %s vence o jogo!\n", equipeVenceu->Nome);
+   } /* Fim Função: INT &Terminar Jogo */
 
 /*****  Código das funções encapsuladas no módulo  *****/
 
