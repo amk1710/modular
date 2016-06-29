@@ -64,6 +64,7 @@
 typedef struct LIS_tagLista * LIS_tppLista ;
 
 
+
 /***********************************************************************
 *
 *  $TC Tipo de dados: LIS Condições de retorno
@@ -90,8 +91,54 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 
          LIS_CondRetFaltouMemoria
                /* Faltou memória ao tentar criar um elemento de lista */
+#ifdef _DEBUG
+		, LIS_CondRetDeturpacao
+			   /* Foi detectada alguma deturpação na lista.  */
+#endif		
 
    } LIS_tpCondRet ;
+
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+   typedef enum {
+
+	   Desencadear_TRAS        =  1 ,
+	   /* Desencadea no pAnt do elemento seguinte ao corrente, se existir */
+	   Desencadear_FRENTE		 =  2 ,
+	   /* Desencadea pProx do elemento anterior ao corrente, se existir */
+	   DeturpaTipoCabeca        =  3 ,
+	   /* Modifica o tipo da cabeça */
+
+	   DeturpaCorrenteNulo      =  4 ,
+	   /* Anula ponteiro corrente */
+
+	   DeturpaTipoCorrente            =  5 ,
+	   /* Modifica tipo elemento corrente */
+
+	   DeturpaListaCircular		= 6,
+	   /* transforma a lista numa lista circular */
+
+	   DeturpaPonteiroCabecaLista = 7,
+	   /* muda a redundância ponteiro cabeça de lista do elemento corrente */
+
+	   DeturpaContagem = 8,
+	   /* muda o campo posicaoElementoLista do elemento corrente para -1 */
+
+	   DeturpaPerdeElemento = 9
+	   /* tira o elemento corrente da lista, juntando seus vizinhos */
+
+
+
+   } LIS_tpModosDeturpacao ;
+#endif
 
 
 /***********************************************************************
@@ -359,6 +406,52 @@ typedef struct LIS_tagLista * LIS_tppLista ;
 
    LIS_tpCondRet LIS_ProcurarValor( LIS_tppLista pLista ,
                                    void * pValor        ) ;
+
+
+/***********************************************************************
+*
+*  $FC Função: LIS  &Verificar corretude
+*
+*  $ED Descrição da função
+*     Usa redundâncias para verificar corretude de toda a árvore. Somente para modo _DEBUG
+*
+*  $EP Parâmetros
+*     pLista  - ponteiro para a lista onde procura
+*
+*  $FV Valor retornado
+*     LIS_CondRetOK  - nenhuma deturpação detectada. Lista correta
+*
+*     LIS_Deturpacao - deturpação encontrada.
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+   LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pLista);
+#endif
+
+
+
+/***********************************************************************
+*
+*  $FC Função: LIS  &Deturpar Lista
+*
+*  $ED Descrição da função
+*     Deturpa a lista segundo o modo passado. Somente para modo _DEBUG
+*
+*  $EP Parâmetros
+*     pLista  - ponteiro para a lista onde procura
+*
+*  $FV Valor retornado
+*     LIS_CondRetOK  - nenhuma deturpação detectada. Lista correta
+*
+*     LIS_Deturpacao - deturpação encontrada.
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+   LIS_tpCondRet LIS_DeturparLista(LIS_tppLista pLista, LIS_tpModosDeturpacao modo);
+#endif
+
 
 #undef LISTA_EXT
 
