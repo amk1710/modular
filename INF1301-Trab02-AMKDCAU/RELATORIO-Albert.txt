@@ -8,5 +8,11 @@
 08/05 - 2h00m - códificar módulo ; baralho.c
 09/05 - revisar codigo do modulo ; baralho.c
 10/05 - 4h00m - revisar codificacao do módulo ; baralho.c
-
-
+18/06 - 2h00m - revisar especificações
+20/06 - 4h00m - codificar módulo ; interface.h
+21/06 - 1h00m - codificar módulo ; interface.h
+21/06 - 3h00m - codificar módulo ; interface.c
+27/06 - 2h00m - revisar codificacao do módulo ; interface.c
+28/06 - 3h00m - codificar módulo ; interface.c
+29/06 - 3h00m - revisar codificacao do módulo ; interface.c
+29/06 - 2h00m - codificar módulo ; interface.c
