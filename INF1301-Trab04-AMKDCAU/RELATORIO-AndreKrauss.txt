@@ -1,0 +1,6 @@
+
+24/06 - 4h00m - projetar - testes e instrumentação do módulo lista
+26/06 - 6h00m - codificar - redundâncias do módulo lista. Começar a função verificar
+27/06 - 6h00m - codificar, script de teste - finalização da verificar lista e sua inclusão nos testes.
+28/06 - 6h00m - codificar, script de teste - implementar a função deturpadora e sua inclusão nos testes. Adicionar a função deturpadora no código
+29/06 - 5h00m - codificar, script de teste - terminar de inserir contadores. organizar testes para entrega. revisar implementação de interface e controlador.

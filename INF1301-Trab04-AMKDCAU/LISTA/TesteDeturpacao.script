@@ -1,0 +1,388 @@
+// Script:    TesteDeturpacao.script
+// Autor:     André Mazal Krauss. Baseado em trabalho de teste por Arndt von Staa
+// Data:      27/jun/2016
+// Propósito: Testar as deturpações do módulo lista
+
+== Inicializar valores
+=declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+=declararparm   lista3  int 3
+=declararparm   lista4  int 4
+=declararparm	lista5	int 5
+=declararparm	lista6	int 6
+=declararparm	lista7	int 7
+=declararparm	lista8	int 8
+
+
+
+=declararparm   str0    string  "abcdefg"
+=declararparm   str1    string  "qwerty"
+=declararparm   str2    string  "xxx"
+=declararparm   str3    string  "xpto"
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+=declararparm   Deturpado      int  5
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+=declararparm	Zeroelemento	int 0
+=declararparm	Umelemento	int 1
+=declararparm	Treselementos	int 3
+
+=declararparm	Desencadear_TRAS	int 1
+=declararparm	Desencadear_FRENTE	int 2
+=declararparm	DeturpaTipoCabeca	int 3
+=declararparm	DeturpaCorrenteNulo	int 4
+=declararparm	DeturpaTipoCorrente	int 5
+=declararparm	DeturpaListaCircular	int 6
+=declararparm	DeturpaPonteiroCabecaLista int 7
+=declararparm	DeturpaContagem		int 8
+=declararparm	DeturpaPerdeElemento	int 9
+
+== Iniciar contagem
+=inicializarcontadores  ""
+=lercontadores          "ListaDet.count"
+=iniciarcontagem
+
+//casos de teste normais
+== Criar a lista 0
+=criarlista      lista0 
+
+== Verificar ObterValor relativo a lista vazia
+=obtervalorelem  lista0   "???"     pNULL
+
+==verificar numElem em lista vazia
+=numelem lista0 Zeroelemento
+
+== Inserir elemento em lista vazia
+=inselemantes    lista0   str0   OK
+=obtervalorelem  lista0   str0   pNaoNULL
+
+==verificar numElem em lista com um elemento
+=numelem lista0 Umelemento
+
+=verificar lista0 OK
+
+== Inserir elemento após primeiro
+=inselemapos     lista0   str1   OK
+=obtervalorelem  lista0   str1   pNaoNULL
+
+== Inserir elemento antes do último
+=inselemantes    lista0   str2   OK
+=obtervalorelem  lista0   str2   pNaoNULL
+
+==verificar que lista tem tres elementos
+=numelem lista0 Treselementos
+
+== Excluir elemento do meio
+=obtervalorelem  lista0   str2   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento do início
+=obtervalorelem  lista0   str0   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento final, único 
+=obtervalorelem  lista0   str1   pNaoNULL
+=excluirelem     lista0             OK
+
+== Ver se a lista ficou vazia
+=obtervalorelem  lista0   "???"     pNULL
+
+== Destruir a lista
+=destruirlista   lista0
+
+== Criar uma lista com dois elementos
+=criarlista      lista1 
+=inselemapos     lista1   str0   OK
+=inselemapos     lista1   str1   OK
+
+=verificar lista1 OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista   lista1
+=obtervalorelem  lista1   "???"     pNULL
+
+=verificar lista1 OK
+
+==avançar posições em lista vazia
+=avancarelem     lista1   -1     ListaVazia
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista      lista2 
+=inselemapos     lista2   str0   OK
+=inselemapos     lista2   str1   OK
+=inselemapos     lista2   str2   OK
+=inselemapos     lista2   str3   OK
+
+=verificar lista2 OK
+
+== Verificar a lista de trás para diante
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   -1     FimLista
+
+==avancar 0 posições
+=avancarelem     lista2   0     OK
+
+
+== Verificar a lista de frente para trás
+=obtervalorelem  lista2   str0   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str1   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str2   pNaoNULL
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   str3   pNaoNULL
+=avancarelem     lista2   1      FimLista
+
+== Verificar a lista andando demais de trás para diante
+=avancarelem     lista2   -10     FimLista
+=obtervalorelem  lista2   str0   pNaoNULL
+
+== Verificar a lista andando demais de frente para trás
+=avancarelem     lista2   10     FimLista
+=obtervalorelem  lista2   str3   pNaoNULL
+
+
+==inserir elemento após, corrente não é o último
+=irinicio lista2
+=inselemapos lista2 str0 OK
+
+
+=verificar lista2 OK
+
+== Destruir a lista
+=destruirlista   lista2
+
+== criar lista 3
+=criarlista  lista3
+
+==criar lista 4
+=criarlista  lista4
+
+==inserir valores(antes) em lista3
+=inselemantes lista3 str0 OK
+=inselemantes lista3 str1 OK
+=inselemantes lista3 str2 OK
+=inselemantes lista3 str3 OK
+
+
+== inserir valores(apos) em lista4
+=inselemapos lista4 str0 OK
+=inselemapos lista4 str1 OK
+=inselemapos lista4 str2 OK
+=inselemapos lista4 str3 OK
+
+== bota lista3 no fim, lista 4 no inicio
+=irinicio lista4
+=irfinal lista3
+
+==testa lista3 do fim pro começo, lista 4 do começo pro fim
+=obtervalorelem lista3 str0 pNaoNULL
+=avancarelem lista3 -1 OK
+=obtervalorelem lista4 str0 pNaoNULL
+=avancarelem lista4 1 OK
+=obtervalorelem lista3 str1 pNaoNULL
+=avancarelem lista3 -1 OK
+=obtervalorelem lista4 str1 pNaoNULL
+=avancarelem lista4 1 OK
+=obtervalorelem lista3 str2 pNaoNULL
+=avancarelem lista3 -1 OK
+=obtervalorelem lista4 str2 pNaoNULL
+=avancarelem lista4 1 OK
+=obtervalorelem lista3 str3 pNaoNULL
+=obtervalorelem lista4 str3 pNaoNULL
+
+== insere elementos repetidos em ambas listas e os testa
+=inselemantes lista3 str0 OK
+=inselemapos  lista4 str0 OK
+=obtervalorelem lista3 str0 pNaoNULL
+=obtervalorelem lista4 str0 pNaoNULL
+
+=verificar lista4 OK
+
+==destroi ambas listas
+=destruirlista lista3
+=destruirlista lista4
+
+
+
+
+
+//casos a serem deturpados
+
+== Criar uma lista0 com quatro elementos
+=criarlista      lista0 
+=inselemapos     lista0   str0   OK
+=inselemapos     lista0   str1   OK
+=inselemapos     lista0   str2   OK
+=inselemapos     lista0   str3   OK
+
+==deturpa e verificar. Desencadear_TRAS
+=irinicio lista0
+=avancarelem lista0 1 OK
+=deturpar lista0 Desencadear_TRAS OK
+=verificar lista0 OK
+=recuperar
+=destruirlista lista0
+=AceitaFalhasAcumuladas 1
+
+== Criar uma lista1 com quatro elementos
+=criarlista      lista1 
+=inselemapos     lista1   str0   OK
+=inselemapos     lista1   str1   OK
+=inselemapos     lista1   str2   OK
+=inselemapos     lista1   str3   OK
+
+==deturpa e verificar. Desencadear_FRENTE 
+=irinicio lista1
+=avancarelem lista1 1 OK
+=deturpar lista1 Desencadear_FRENTE OK
+=verificar lista1 OK
+=recuperar
+=destruirlista lista1
+=AceitaFalhasAcumuladas 1
+
+== Criar uma lista2 com quatro elementos
+=criarlista      lista2 
+=inselemapos     lista2   str0   OK
+=inselemapos     lista2   str1   OK
+=inselemapos     lista2   str2   OK
+=inselemapos     lista2   str3   OK
+
+==deturpa e verificar. DeturpaTipoCabeca 
+=irinicio lista2
+=avancarelem lista2 1 OK
+=deturpar lista2 DeturpaTipoCabeca OK
+=verificar lista2 OK
+=recuperar
+=destruirlista lista2
+=AceitaFalhasAcumuladas 1
+
+
+== Criar uma lista3 com quatro elementos
+=criarlista      lista3 
+=inselemapos     lista3   str0   OK
+=inselemapos     lista3   str1   OK
+=inselemapos     lista3   str2   OK
+=inselemapos     lista3   str3   OK
+
+==deturpa e verificar. DeturpaCorrenteNulo
+=irinicio lista3
+=avancarelem lista3 1 OK
+=deturpar lista3 DeturpaCorrenteNulo OK
+=verificar lista3 OK
+=recuperar
+=destruirlista lista3
+=AceitaFalhasAcumuladas 1
+
+
+== Criar uma lista4 com quatro elementos
+=criarlista      lista4 
+=inselemapos     lista4   str0   OK
+=inselemapos     lista4   str1   OK
+=inselemapos     lista4   str2   OK
+=inselemapos     lista4   str3   OK
+
+==deturpa e verificar. DeturpaTipoCorrente
+=irinicio lista4
+=avancarelem lista4 1 OK
+=deturpar lista4 DeturpaTipoCorrente OK
+=verificar lista4 OK
+=recuperar
+=destruirlista lista4
+=AceitaFalhasAcumuladas 1
+
+
+== Criar uma lista5 com quatro elementos
+=criarlista      lista5 
+=inselemapos     lista5   str0   OK
+=inselemapos     lista5   str1   OK
+=inselemapos     lista5   str2   OK
+=inselemapos     lista5   str3   OK
+
+==deturpa e verificar. DeturpaListaCircular
+=irinicio lista5
+=avancarelem lista5 1 OK
+=deturpar lista5 DeturpaListaCircular OK
+=verificar lista5 OK
+=recuperar
+//tentar destruir a lista resulta em erro
+=AceitaFalhasAcumuladas 1
+
+== Criar uma lista6 com quatro elementos
+=criarlista      lista6 
+=inselemapos     lista6   str0   OK
+=inselemapos     lista6   str1   OK
+=inselemapos     lista6   str2   OK
+=inselemapos     lista6   str3   OK
+
+==deturpa e verificar. DeturpaPonteiroCabecaLista
+=irinicio lista6
+=avancarelem lista6 1 OK
+=deturpar lista6 DeturpaPonteiroCabecaLista OK
+=verificar lista6 OK
+=recuperar
+=destruirlista lista6
+=AceitaFalhasAcumuladas 1
+
+
+== Criar uma lista7 com quatro elementos
+=criarlista      lista7 
+=inselemapos     lista7   str0   OK
+=inselemapos     lista7   str1   OK
+=inselemapos     lista7   str2   OK
+=inselemapos     lista7   str3   OK
+
+==deturpa e verificar. DeturpaContagem
+=irinicio lista7
+=avancarelem lista7 1 OK
+=deturpar lista7 DeturpaContagem OK
+=verificar lista7 OK
+=recuperar
+=destruirlista lista7
+=AceitaFalhasAcumuladas 1
+
+
+== Criar uma lista8 com quatro elementos
+=criarlista      lista8 
+=inselemapos     lista8   str0   OK
+=inselemapos     lista8   str1   OK
+=inselemapos     lista8   str2   OK
+=inselemapos     lista8   str3   OK
+
+==deturpa e verificar. DeturpaPerdeElemento
+=irinicio lista8
+=avancarelem lista8 1 OK
+=deturpar lista8 DeturpaPerdeElemento OK
+=verificar lista8 OK
+=recuperar
+=destruirlista lista8
+=AceitaFalhasAcumuladas 1
+
+
+== Terminar controlar contadores
+=pararcontagem
+=verificarcontagens    0
+
+== Terminar contagem
+=terminarcontadores
+
+
+==checa vazamento. Certas deturpações causam vazamento.
+=vermemoria

@@ -1,0 +1,119 @@
+Programa TesteLista.exe - LEIA-ME
+
+T4 INF 1301 de André, Albert e Danilo.
+
+
+Para realizar os testes para o módulo Lista Genérica duplamente encadeada,
+siga os seguintes passos:
+
+	1 - Mude os seguinte arquivos de nome, da seguinte maneira:
+		Maneira: XXX.exe.txt para XXX.exe
+		Arquivos: compilebanner.exe.txt ; exbestat.exe.txt ; 
+			  GMake.exe.txt;
+		Além destes, 
+		a)ArcaboucoTeste.lib.txt para ArcaboucoTeste.lib
+		b)CompilaTudo.bat.txt para CompilaTudo.bat
+		c) TesteTudoProd.bat.txt para TesteTudoProd.bat
+		d) vsvars32.bat.txt para vsvars32.bat
+		e) TesteTudoDEBUG.bat.txt para TesteTudoDEBUG.bat
+
+	2- rode o .bat vsvars32.bat, ou o equivalente para sua IDE. 
+
+
+	3 -  Abra o prompt de comando no diretório lista, e execute o seguinte comando:
+	gmake/CTesteListaProd.comp
+
+	4 - Rode o .bat CompilaTudo.bat, localizado no mesmo diretório
+
+	5 - Rode o .bat TestaTudoProd.bat, localizado no mesmo diretório.
+
+	6 - Isso haverá executado os testes da versão de produção do módulo. Para os testes DEBUG:
+
+	7 - Execute o seguinte comando no prompt de comando no diretório lista: gmake/CTesteListaDEBUG.comp
+
+	8 - Rode o .bat CompilaTudo.bat, localizado no mesmo diretório.
+
+	9 - Rode o .bat TestaTudoDEBUG.bat, localizado no mesmo diretório.
+
+	10 - Os testes para os scripts com DEBUG terão sido realizados.	 
+
+obs: caso seja perguntado sobre a criação de qualquer arquivo durante os passos acima, aceite.
+
+
+	Os testes estão dividos em 5 scripts e seus respectivos logs.
+
+	TesteListaProd.script (TesteListaProd.log) - testes para a versão de produção do módulo lista
+		foi levemente modificado em relação ao T2 porque descobriu-se através do teste por arestas
+		que nem todas as arestas estavam sendo percorridas.
+
+	TesteContadores.script (TesteContadores.log) - testes de coberturas de arestas das funções exercitadas
+		pelo teste acima. Não usa outras funções DEBUG.
+
+	TesteVazamento.script (TesteVazamento.log) - usado para verificar que não há vazamento de memória ao
+		utilizarmos as funções não DEBUG do módulo lista.
+
+	TesteVerificacao.script (TesteVerificacao.log) - segue o padrão dos testes acima, mas para cada comando chama
+		o comando =verificar, que verifica, usando as redundâncias,  se a lista passada atende às assertivas definidas na documentação.
+
+	TesteDeturpacao.script (TesteDeturpacao.log) - verifica utilizando uma função deturpadora que a função de verificação
+		das assertivas é capaz de detectar violações às mesmas. São usados 9 tipos de deturpação. Nesse teste haverá
+		vazamento de memória, já que algumas deturpações causam isso.
+
+
+Comandos disponíveis:
+=resetteste
+           - anula o vetor de listas. Provoca vazamento de memória
+     =criarlista                   inxLista
+		- cria uma nova lista de numero inxLista.
+     =destruirlista                inxLista
+		- destroi a lista de numero inxLista
+     =esvaziarlista                inxLista
+		- remove todos elementos da lista de numero inxLista,
+		  sem contudo destruí-la.
+     =inselemantes                 inxLista  string  CondRetEsp
+		- insere um novo elemento(string) antes do elemento corrente.
+     =inselemapos                  inxLista  string  CondRetEsp
+		- insere um novo elemento(string) após o elemento corrente
+     =obtervalorelem               inxLista  string  CondretPonteiro
+		 - obtém o valor do elemento corrente, e o compara com a
+		   string passada. se forem diferentes, resultará em erro
+     =excluirelem                  inxLista  CondRetEsp
+		- exclui o elemento corrente da lista
+     =irinicio                     inxLista
+		- o elemento corrente da lista vira o seu primeiro elemento
+     =irfinal                      inxLista
+		- o elemento corrente da lista vira seu último elemento
+     =avancarelem                  inxLista  numElem CondRetEsp
+		- avança numElem elementos na lista de número inxLista.
+		  Positivo avança para o final, negativo para o início.
+
+	=numElem - obtém o número de elementos na lista, checando contra seu segundo argumento
+
+	obs: todos os parâmetros são int, exceto o 'string', que é char*.
+	     só são suportadas 10 listas diferentes, assim, inxLista deve
+	     ser um número inteiro entre 0 e 9.
+
+DEBUG:
+
+=inicializarcontadores
+	inicializa os contadores de passagem
+=lercontadores
+	lê os contadores a serem utilizados de um arquivo .count
+=iniciarcontagem
+	inicia a contagem de passagens
+=pararcontagem
+	para a contagem
+=verificarcontagens	0
+	é o caso que utilizamos. verifica que nenhum contador é igual a 0
+=terminarcontadores
+	finaliza o uso dos contadores
+=vermemoria
+	exibe os espaços de memória alocados durante a execução e informa quantos 
+	não foram desalocados.
+=verificar listai CondRet
+	verifica se a lista atende às assertivas com redundâncias. CondRet é o retorno esperado, OK ou Deturpado
+=deturpar listai modo CondRet
+	deturpa a lista i segundo o modo passado. Se não conseguir condRet pode ser OK, ou outros retornos da lista,
+	a função verificar se conseguiu deturpar ou não.
+=AceitaFalhasAcumuladas i
+	aceita i falhas como previstas e não as contabiliza no fim. Usada para contabilizar as deturpações detectadas.

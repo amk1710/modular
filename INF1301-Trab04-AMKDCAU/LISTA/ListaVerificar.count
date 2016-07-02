@@ -1,0 +1,165 @@
+///////////////////
+///contadores para cobertura de arestas do módulo Lista
+///
+///
+///////////////////
+
+//Função CriarLista
+
+	LIS_CriarLista_a
+	LIS_CriarLista_b\=-2
+	LIS_CriarLista_c
+
+
+//Função DestruirLista
+
+	LIS_DestruirLista_a
+
+
+
+//Função EsvaziarLista
+
+	LIS_EsvaziarLista_a
+	LIS_EsvaziarLista_b
+	LIS_EsvaziarLista_c
+	
+//Função Inserir elem antes
+
+	LIS_InserirElementoAntes_i
+	LIS_InserirElementoAntes_p\=-2
+	LIS_InserirElementoAntes_a
+	LIS_InserirElementoAntes_b
+	LIS_InserirElementoAntes_c
+	LIS_InserirElementoAntes_d
+	LIS_InserirElementoAntes_e
+	LIS_InserirElementoAntes_f
+
+//Função Inserir elem após
+
+	LIS_InserirElementoApos_i
+	LIS_InserirElementoApos_p\=-2
+	LIS_InserirElementoApos_a
+	LIS_InserirElementoApos_b
+	LIS_InserirElementoApos_c
+	LIS_InserirElementoApos_d
+	LIS_InserirElementoApos_e
+	LIS_InserirElementoApos_f
+
+//Função excluir elemento
+	LIS_ExcluirElemento_a
+	LIS_ExcluirElemento_b
+	LIS_ExcluirElemento_c
+	LIS_ExcluirElemento_d
+	LIS_ExcluirElemento_e
+	LIS_ExcluirElemento_f
+
+//Função obter valor
+	LIS_ObterValor_a
+	LIS_ObterValor_b
+	LIS_ObterValor_c
+
+//Função ir elemento inicial
+	IrInicioLista_a
+
+//Função ir elemento final
+	IrFinalLista_a
+
+//Função avançar elemento
+	LIS_AvancarElementoCorrente_a
+	LIS_AvancarElementoCorrente_b
+	LIS_AvancarElementoCorrente_c	
+	LIS_AvancarElementoCorrente_d
+	LIS_AvancarElementoCorrente_e
+	LIS_AvancarElementoCorrente_f
+	LIS_AvancarElementoCorrente_g
+	LIS_AvancarElementoCorrente_h
+	LIS_AvancarElementoCorrente_i
+	LIS_AvancarElementoCorrente_j
+	LIS_AvancarElementoCorrente_k
+	LIS_AvancarElementoCorrente_l
+	LIS_AvancarElementoCorrente_m
+	LIS_AvancarElementoCorrente_n
+	LIS_AvancarElementoCorrente_o
+
+//Função numero de elementos
+	LIS_NumerodeElementos_a		
+	
+
+//Função encapsulada LiberarELemento
+	LiberarElemento_a
+	LiberarElemento_b
+
+//Função encapsulada CriarElemento
+	CriarElemento_a
+	CriarElemento_b\=-2
+	CriarElemento_c
+
+//Função encapsulada LimparCabeça
+	LimparCabeca_a
+
+//Função _DEBUG Verificar Lista
+
+// Contadores para arestas em que violações são detectadas. São opcionais, já que nenhuma violação é esperada nesse teste.
+	LIS_VerificarLista_E1\=-1
+	LIS_VerificarLista_E2\=-1
+	LIS_VerificarLista_E3\=-1
+	LIS_VerificarLista_E4\=-1
+	LIS_VerificarLista_E5\=-1
+	LIS_VerificarLista_E6\=-1
+	LIS_VerificarLista_E7\=-1
+	LIS_VerificarLista_E8\=-1
+	LIS_VerificarLista_E9\=-1
+	LIS_VerificarLista_E10\=-1
+	LIS_VerificarLista_E11\=-1
+	LIS_VerificarLista_E12\=-1
+	LIS_VerificarLista_E13\=-1
+	LIS_VerificarLista_E14\=-1
+	LIS_VerificarLista_E15\=-1
+	LIS_VerificarLista_E16\=-1
+	LIS_VerificarLista_E17\=-1
+	LIS_VerificarLista_E18\=-1
+	LIS_VerificarLista_E19\=-1
+	LIS_VerificarLista_E20\=-1
+//Contadores OK. No conjunto de listas corretas verificadas, espera-se que todos sejam percorridos
+	LIS_VerificarLista_a
+	LIS_VerificarLista_b
+	LIS_VerificarLista_c
+	LIS_VerificarLista_d
+	LIS_VerificarLista_e
+	LIS_VerificarLista_f
+	LIS_VerificarLista_g
+	LIS_VerificarLista_h
+	LIS_VerificarLista_i
+	LIS_VerificarLista_j
+	LIS_VerificarLista_k
+	LIS_VerificarLista_l
+	LIS_VerificarLista_m
+	LIS_VerificarLista_n
+	LIS_VerificarLista_o
+	LIS_VerificarLista_p
+	LIS_VerificarLista_q
+	LIS_VerificarLista_r
+	LIS_VerificarLista_s
+	LIS_VerificarLista_t
+	LIS_VerificarLista_u
+	LIS_VerificarLista_v
+	LIS_VerificarLista_x
+	LIS_VerificarLista_w
+	LIS_VerificarLista_y
+	LIS_VerificarLista_z
+	LIS_VerificarLista_aa
+	LIS_VerificarLista_ab
+
+//Função encapsulada DEBUG verificar Elem
+	LIS_VerificarElem_i
+	LIS_VerificarElem_a
+	LIS_VerificarElem_b
+	LIS_VerificarElem_c
+	LIS_VerificarElem_d
+	LIS_VerificarElem_e
+	LIS_VerificarElem_f
+	LIS_VerificarElem_E1\=-1
+	LIS_VerificarElem_E2\=-1
+	LIS_VerificarElem_E3\=-1
+	LIS_VerificarElem_E4\=-1
+	LIS_VerificarElem_E5\=-1

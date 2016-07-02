@@ -1,0 +1,58 @@
+Programa TesteBaralho.exe - LEIA-ME
+
+T2 INF 1301 de André, Albert e Danilo.
+
+
+Para realizar os testes para o módulo Lista Genérica duplamente encadeada,
+siga os seguintes passos:
+
+	1 - Mude os seguinte arquivos de nome, da seguinte maneira:
+		Maneira: XXX.exe.txt para XXX.exe
+		Arquivos: compilebanner.exe.txt ; exbestat.exe.txt ; 
+			  GMake.exe.txt; e TesteBaralho.exe.txt
+
+		Além destes, 
+		a)ArcaboucoTeste.lib.txt para ArcaboucoTeste.lib
+		b)CompilaTesteBaralho.bat.txt para CompilaTesteBaralho.bat
+		c) TesteBaralho.bat.txt para TesteBaralho.bat
+		d) vsvars32.bat.txt para vsvars32.bat
+
+	2- rode o .bat vsvars32.bat, ou o equivalente para sua IDE. 
+
+
+	3 -  Abra o prompt de comando no diretório lista, e execute o seguinte comando:
+	gmake/CTesteBaralho.comp
+
+	4 - Rode o .bat CompilaTesteBaralho.bat, localizado no mesmo diretório
+
+	5 - Rode o .bat TestaBaralho.bat, localizado no mesmo diretório.
+
+	6 - Os resultados serão exibidos no próprio prompt de comando. 
+	Caso se deseje mais detalhes, eles serão encontrados no arquivo TesteBaralho.log,
+	no próprio diretório lista.
+
+	obs: caso seja perguntado sobre a criação de qualquer arquivo durante os passos acima, aceite.
+
+
+Comandos disponíveis:
+=criarbaralho
+	-cria o baralho usado no teste.
+=testardevolucao int int
+	-insere no baralho a carta com os valores em carta equivalentes ao valores dados.
+=compararcompra int int
+	-compra uma carta do baralho e a compara com os valores dados. Se são diferentes,
+	resultará em erro. Como a compra é aleatória, só garante sucesso quando há somente
+	uma carta no baralho
+=testarcompra ValEsp
+	-compra uma carta do baralho. compara o valor recebido com o passado. Se esse valor
+	não for nulo, imprime a carta no log
+=testarsetarbaralho RetEsp
+	-seta o baralho para um baralho convencional de 54 cartas. Compara o valor retornado 
+	com o esperado
+=testarsetarbaralho RetEsp
+	-seta o baralho para um baralho de truco com 40 cartas. Compara o valor retornado 
+	com o esperado
+=testardestruir
+	-destroi o baralho usado nos testes.
+
+	 

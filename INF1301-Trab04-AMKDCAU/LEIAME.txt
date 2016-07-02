@@ -1,0 +1,21 @@
+Trabalho T4 de Programação Modular - INF1301
+
+Alunos: André, Albert e Danilo
+
+Para testar o módulo GERAALT, que implementa funções de sobre números
+aleatórios: Abrir o diretório GERAALT e seguir as instruções contidas em
+LEIA-ME.GERAALT.txt 
+
+Para testar o módulo lista, que implementa a lista genérica duplamente
+encadeada usada no trabalho: abrir o diretório lista e seguir as instruções
+contidas em LEIA-ME.LISTA.txt
+
+Para testar o módulo baralho, que implementa cartas e baralhos: abrir o diretório
+baralho e seguir as instruções contidas em LEIA-ME.BARALHO.txt
+
+A especificação de requisitos, arquitetura e modelagem estrutural estão contidas em
+documentação.pdf
+
+
+
+

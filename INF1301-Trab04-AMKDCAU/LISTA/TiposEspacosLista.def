@@ -1,0 +1,21 @@
+#if ! defined( TIPOS_LISTA_ )
+#define TIPOS_LISTA_
+/***************************************************************************
+*
+*  $MCD Arquivo de definição: TiposEspacosLista.def
+*
+*  Projeto: T4 de Programação Modular
+*  Gestor:  André
+*  Autores: André
+*
+*  $ED Descrição do arquivo
+*     Declara os identificadores de tipos de espaço alocados no módulo lista, para serem usados através do módulo CESPDIN.
+*
+***************************************************************************/
+
+      LIS_TipoEspacoCabeca , 
+      LIS_TipoEspacoElem     ,
+
+/********** Fim do arquivo de definição: TiposEspacosLista.def  **********/
+
+#endif

@@ -1,0 +1,13 @@
+REM executa os testes dos exemplos simples
+
+del estatisticas.estat
+
+testeLista  /sTesteContadores    /lTesteContadores   /aestatisticas
+
+testeLista  /sTesteDeturpacao    /lTesteDeturpacao   /aestatisticas
+
+testeLista  /sTesteVazamento    /lTesteVazamento   /aestatisticas
+
+testeLista  /sTesteVerificacao    /lTesteVerificacao   /aestatisticas
+
+exbestat /eestatisticas

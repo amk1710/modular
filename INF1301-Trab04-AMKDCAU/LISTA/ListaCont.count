@@ -1,0 +1,98 @@
+///////////////////
+///contadores para cobertura de arestas do módulo Lista
+///
+///
+///////////////////
+
+//Função CriarLista
+
+	LIS_CriarLista_a
+	LIS_CriarLista_b\=-2
+	LIS_CriarLista_c
+
+
+//Função DestruirLista
+
+	LIS_DestruirLista_a
+
+
+
+//Função EsvaziarLista
+
+	LIS_EsvaziarLista_a
+	LIS_EsvaziarLista_b
+	LIS_EsvaziarLista_c
+	
+//Função Inserir elem antes
+
+	LIS_InserirElementoAntes_i
+	LIS_InserirElementoAntes_p\=-2
+	LIS_InserirElementoAntes_a
+	LIS_InserirElementoAntes_b
+	LIS_InserirElementoAntes_c
+	LIS_InserirElementoAntes_d
+	LIS_InserirElementoAntes_e
+	LIS_InserirElementoAntes_f
+
+//Função Inserir elem após
+
+	LIS_InserirElementoApos_i
+	LIS_InserirElementoApos_p\=-2
+	LIS_InserirElementoApos_a
+	LIS_InserirElementoApos_b
+	LIS_InserirElementoApos_c
+	LIS_InserirElementoApos_d
+	LIS_InserirElementoApos_e
+	LIS_InserirElementoApos_f
+
+//Função excluir elemento
+	LIS_ExcluirElemento_a
+	LIS_ExcluirElemento_b
+	LIS_ExcluirElemento_c
+	LIS_ExcluirElemento_d
+	LIS_ExcluirElemento_e
+	LIS_ExcluirElemento_f
+
+//Função obter valor
+	LIS_ObterValor_a
+	LIS_ObterValor_b
+	LIS_ObterValor_c
+
+//Função ir elemento inicial
+	IrInicioLista_a
+
+//Função ir elemento final
+	IrFinalLista_a
+
+//Função avançar elemento
+	LIS_AvancarElementoCorrente_a
+	LIS_AvancarElementoCorrente_b
+	LIS_AvancarElementoCorrente_c	
+	LIS_AvancarElementoCorrente_d
+	LIS_AvancarElementoCorrente_e
+	LIS_AvancarElementoCorrente_f
+	LIS_AvancarElementoCorrente_g
+	LIS_AvancarElementoCorrente_h
+	LIS_AvancarElementoCorrente_i
+	LIS_AvancarElementoCorrente_j
+	LIS_AvancarElementoCorrente_k
+	LIS_AvancarElementoCorrente_l
+	LIS_AvancarElementoCorrente_m
+	LIS_AvancarElementoCorrente_n
+	LIS_AvancarElementoCorrente_o
+
+//Função numero de elementos
+	LIS_NumerodeElementos_a		
+	
+
+//Função encapsulada LiberarELemento
+	LiberarElemento_a
+	LiberarElemento_b
+
+//Função encapsulada CriarElemento
+	CriarElemento_a
+	CriarElemento_b\=-2
+	CriarElemento_c
+
+//Função encapsulada LimparCabeça
+	LimparCabeca_a
